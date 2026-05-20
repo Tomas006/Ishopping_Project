@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IShopping.Models
+namespace Ishopping_Project.Controlleres
 {
-    public class Sessao
+    internal class FormPrincipalController
     {
-
-        public static string UtilizadorAtual { get; set; }
     }
 }
