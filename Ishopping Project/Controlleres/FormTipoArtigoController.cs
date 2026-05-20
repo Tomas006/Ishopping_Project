@@ -7,20 +7,20 @@ namespace Ishopping_Project.Controlleres
 {
     internal class FormTipoArtigoController
     {
-        // 1. OBTER TODOS OS TIPOS (Para preencher a DataGridView)
-       public static object ObterTodosTipos()
-{
-    using (IShoppingContext db = new IShoppingContext())
-    {
-        // Criamos um objeto anónimo que traz apenas o que a DataGridView precisa
-        return db.TiposArtigo
-                 .Select(t => new { t.Id, t.Nome })
-                 .OrderBy(t => t.Nome)
-                 .ToList();
-    }
-}
+        // Preencher DataView com os Tipos de Artigo
+        public static object ObterTodosTipos()
+       {
+            using (IShoppingContext db = new IShoppingContext())
+            {
+           
+            return db.TiposArtigo
+                     .Select(t => new { t.Id, t.Nome })
+                     .OrderBy(t => t.Nome)
+                     .ToList();
+            }
+       }
 
-        // 2. CRIAR NOVO TIPO
+       
         public static bool CriarTipoArtigo(string nome, out string mensagem)
         {
             mensagem = "";
@@ -28,7 +28,6 @@ namespace Ishopping_Project.Controlleres
             {
                 using (IShoppingContext db = new IShoppingContext())
                 {
-                    // Valida se já existe um tipo com o mesmo nome para evitar duplicados
                     if (db.TiposArtigo.Any(t => t.Nome.ToLower() == nome.ToLower()))
                     {
                         mensagem = "Já existe um tipo de artigo com esse nome.";
@@ -50,7 +49,7 @@ namespace Ishopping_Project.Controlleres
             }
         }
 
-        // 3. ATUALIZAR TIPO EXISTENTE (Guardar Alterações)
+    
         public static bool AtualizarTipoArtigo(int id, string novoNome, out string mensagem)
         {
             mensagem = "";
@@ -78,7 +77,7 @@ namespace Ishopping_Project.Controlleres
             }
         }
 
-        // 4. APAGAR TIPO
+       
         public static bool ApagarTipoArtigo(int id, out string mensagem)
         {
             mensagem = "";
