@@ -23,7 +23,7 @@ namespace Ishopping_Project.Views
 
         private void FormUtilizadores_Load(object sender, EventArgs e)
         {
-            // Começa com os pontinhos na password por padrão
+            
             textPassword.UseSystemPasswordChar = true;
             AtualizarGrelha();
         }
@@ -32,7 +32,7 @@ namespace Ishopping_Project.Views
         {
             dataGridViewUtilizadores.SelectionChanged -= dataGridViewUtilizadores_SelectionChanged;
 
-            // MUDA PARA TRUE se queres que as colunas apareçam sozinhas
+           
             dataGridViewUtilizadores.AutoGenerateColumns = true;
 
             dataGridViewUtilizadores.DataSource = null;
@@ -48,7 +48,7 @@ namespace Ishopping_Project.Views
             limparCampos();
         }
 
-        // EVENTO: Quando selecionas uma linha na tabela (Igual ao Tipos de Artigo)
+     
         private void dataGridViewUtilizadores_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -59,17 +59,17 @@ namespace Ishopping_Project.Views
 
                     if (linha.Cells["Id"].Value != null)
                     {
-                        // 1. Guarda o ID do utilizador clicado
+                        
                         idUtilizadorSelecionado = Convert.ToInt32(linha.Cells["Id"].Value);
 
-                        // 2. AJUSTADO: Mudado de "Nome" para "Name" para bater certo com a tua DataGridView!
+                       
                         textNome.Text = linha.Cells["Name"].Value?.ToString();
                         textUsername.Text = linha.Cells["Username"].Value?.ToString();
 
-                        // Fica em branco por segurança (só muda se o utilizador digitar uma nova)
+                        
                         textPassword.Clear();
 
-                        // 3. Bloqueia o Gravar e liberta o Atualizar
+                       
                         btnGravar.Enabled = false;
                         btnAtualizar.Enabled = true;
                     }
@@ -81,7 +81,7 @@ namespace Ishopping_Project.Views
             }
         }
 
-        // BOTÃO: Gravar (Novo Registo)
+        
         private void btnGravar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textNome.Text) || string.IsNullOrWhiteSpace(textUsername.Text) || string.IsNullOrWhiteSpace(textPassword.Text))
@@ -109,7 +109,7 @@ namespace Ishopping_Project.Views
             }
         }
 
-        // BOTÃO: Atualizar (Guardar Alterações do Editar)
+        
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             if (idUtilizadorSelecionado == 0) return;
@@ -132,7 +132,7 @@ namespace Ishopping_Project.Views
             if (ok)
             {
                 MessageBox.Show(msg, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AtualizarGrelha(); // Faz o refresh e faz reset aos botões automaticamente
+                AtualizarGrelha(); 
             }
             else
             {
@@ -140,7 +140,7 @@ namespace Ishopping_Project.Views
             }
         }
 
-        // BOTÃO: Apagar
+       
         private void btnApagar_Click(object sender, EventArgs e)
         {
             if (idUtilizadorSelecionado == 0) return;
@@ -161,13 +161,13 @@ namespace Ishopping_Project.Views
             }
         }
 
-        // CHECKBOX: Ver Password
+        
         private void checkBoxVerPassword_CheckedChanged(object sender, EventArgs e)
         {
             textPassword.UseSystemPasswordChar = !checkBoxVerPassword.Checked;
         }
 
-        // BOTÃO: Limpar (Reseta o estado para poderes criar um Novo)
+        
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
@@ -181,12 +181,11 @@ namespace Ishopping_Project.Views
             textPassword.Clear();
             idUtilizadorSelecionado = 0;
 
-            // Restaura o estado inicial: Gravar ativo, Atualizar bloqueado
+        
             btnGravar.Enabled = true;
             btnAtualizar.Enabled = false;
         }
 
-        // BOTÃO: Voltar
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();

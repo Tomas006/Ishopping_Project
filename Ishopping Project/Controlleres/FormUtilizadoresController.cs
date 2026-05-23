@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using IShopping.Models; // Confirma se o namespace dos teus Models é este
+using IShopping.Models;
 
 namespace Ishopping_Project.Controlleres
 {
     public static class FormUtilizadorController
     {
-        // 1. LISTAR TODOS
+       
         public static List<Utilizador> ObterTodosUtilizadores()
         {
-            using (var db = new IShoppingContext()) // Confirma o nome do teu DbContext
+            using (var db = new IShoppingContext())
             {
                 db.Configuration.ProxyCreationEnabled = false;
                 return db.Utilizadores.ToList();
             }
         }
 
-        // 2. CRIAR NOVO UTILIZADOR
+     
         public static bool CriarUtilizador(string nome, string username, string password, out string mensagem)
         {
             using (var db = new IShoppingContext())
             {
-                // Valida se o Username já existe
+              
                 bool userExiste = db.Utilizadores.Any(u => u.Username.ToLower() == username.ToLower());
                 if (userExiste)
                 {
@@ -45,12 +45,12 @@ namespace Ishopping_Project.Controlleres
             }
         }
 
-        // 3. ATUALIZAR UTILIZADOR
+       
         public static bool AtualizarUtilizador(int id, string nome, string username, string password, out string mensagem)
         {
             using (var db = new IShoppingContext())
             {
-                // Valida se o username já pertence a outro utilizador
+                
                 bool userExiste = db.Utilizadores.Any(u => u.Username.ToLower() == username.ToLower() && u.Id != id);
                 if (userExiste)
                 {
@@ -68,7 +68,7 @@ namespace Ishopping_Project.Controlleres
                 utilizador.Name = nome;
                 utilizador.Username = username;
 
-                // Se o utilizador escreveu algo na password, atualiza. Se deixou em branco, mantém a antiga.
+            
                 if (!string.IsNullOrWhiteSpace(password))
                 {
                     utilizador.Password = password;
@@ -80,7 +80,7 @@ namespace Ishopping_Project.Controlleres
             }
         }
 
-        // 4. APAGAR UTILIZADOR
+
         public static bool ApagarUtilizador(int id, out string message)
         {
             using (var db = new IShoppingContext())
