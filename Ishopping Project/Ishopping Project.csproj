@@ -59,6 +59,7 @@
     <Compile Include="Controlleres\FormPrincipalController.cs" />
     <Compile Include="Controlleres\FormLoginController.cs" />
     <Compile Include="Controlleres\FormTipoArtigoController.cs" />
+    <Compile Include="Controlleres\FormUtilizadoresController.cs" />
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +90,12 @@
     <Compile Include="Views\FormTipoArtigo.Designer.cs">
       <DependentUpon>FormTipoArtigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FormUtilizadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormUtilizadores.Designer.cs">
+      <DependentUpon>FormUtilizadores.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -106,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormTipoArtigo.resx">
       <DependentUpon>FormTipoArtigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormUtilizadores.resx">
+      <DependentUpon>FormUtilizadores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

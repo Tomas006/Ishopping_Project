@@ -34,14 +34,25 @@ namespace Ishopping_Project.Views
         {
             FormTipoArtigo formTipos = new FormTipoArtigo();
 
-
-            formTipos.Show();
+           
             this.Hide();
+
+            formTipos.ShowDialog();
+
+            this.Show();
         }
 
         private void btnGestaoUtilizadores_Click(object sender, EventArgs e)
         {
-            
+            FormUtilizadores formUtilizadores = new FormUtilizadores();
+
+
+            this.Hide();
+
+            formUtilizadores.ShowDialog();
+
+            this.Show();
+
         }
     }
     }

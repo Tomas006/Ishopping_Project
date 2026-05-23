@@ -47,7 +47,7 @@ namespace Ishopping_Project.Controlleres
         {
             mensagem = "";
 
-            // 1. Validação de campos vazios (incluindo o nome)
+         
             if (nome.Trim() == "" || login.Trim() == "" || password == "")
             {
                 mensagem = "Deve preencher todos os campos (Nome, Username e Password).";
@@ -56,7 +56,7 @@ namespace Ishopping_Project.Controlleres
 
             using (IShoppingContext db = new IShoppingContext())
             {
-                // 2. Verificar se o username já está registado
+                
                 bool existe = db.Utilizadores.Any(u => u.Username == login);
 
                 if (existe)
@@ -65,7 +65,6 @@ namespace Ishopping_Project.Controlleres
                     return false;
                 }
 
-                // 3. Criar o novo utilizador com o Nome incluído
                 Utilizador novoUtilizador = new Utilizador
                 {
                     Name = nome,       
@@ -73,7 +72,7 @@ namespace Ishopping_Project.Controlleres
                     Password = password
                 };
 
-                // Adicionar e salvar na base de dados
+               
                 db.Utilizadores.Add(novoUtilizador);
                 db.SaveChanges();
 
