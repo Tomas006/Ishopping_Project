@@ -81,21 +81,21 @@
             this.groupBoxFuncionalidades.Controls.Add(this.btnGestaoTiposArtigos);
             this.groupBoxFuncionalidades.Controls.Add(this.btnGestaoUtilizadores);
             this.groupBoxFuncionalidades.Controls.Add(this.label1);
-            this.groupBoxFuncionalidades.Location = new System.Drawing.Point(11, 31);
-            this.groupBoxFuncionalidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFuncionalidades.Location = new System.Drawing.Point(15, 38);
+            this.groupBoxFuncionalidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxFuncionalidades.Name = "groupBoxFuncionalidades";
-            this.groupBoxFuncionalidades.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxFuncionalidades.Size = new System.Drawing.Size(150, 425);
+            this.groupBoxFuncionalidades.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxFuncionalidades.Size = new System.Drawing.Size(200, 523);
             this.groupBoxFuncionalidades.TabIndex = 0;
             this.groupBoxFuncionalidades.TabStop = false;
             // 
             // btnTerminarSessao
             // 
             this.btnTerminarSessao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTerminarSessao.Location = new System.Drawing.Point(14, 392);
-            this.btnTerminarSessao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTerminarSessao.Location = new System.Drawing.Point(19, 482);
+            this.btnTerminarSessao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTerminarSessao.Name = "btnTerminarSessao";
-            this.btnTerminarSessao.Size = new System.Drawing.Size(124, 24);
+            this.btnTerminarSessao.Size = new System.Drawing.Size(165, 30);
             this.btnTerminarSessao.TabIndex = 11;
             this.btnTerminarSessao.Text = "Terminar Sessão";
             this.btnTerminarSessao.UseVisualStyleBackColor = true;
@@ -103,10 +103,10 @@
             // btnExportarCSV
             // 
             this.btnExportarCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportarCSV.Location = new System.Drawing.Point(14, 324);
-            this.btnExportarCSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportarCSV.Location = new System.Drawing.Point(19, 399);
+            this.btnExportarCSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportarCSV.Name = "btnExportarCSV";
-            this.btnExportarCSV.Size = new System.Drawing.Size(124, 24);
+            this.btnExportarCSV.Size = new System.Drawing.Size(165, 30);
             this.btnExportarCSV.TabIndex = 10;
             this.btnExportarCSV.Text = "Exportar CSV";
             this.btnExportarCSV.UseVisualStyleBackColor = true;
@@ -114,10 +114,10 @@
             // btnEstatisticas
             // 
             this.btnEstatisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstatisticas.Location = new System.Drawing.Point(14, 296);
-            this.btnEstatisticas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEstatisticas.Location = new System.Drawing.Point(19, 364);
+            this.btnEstatisticas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEstatisticas.Name = "btnEstatisticas";
-            this.btnEstatisticas.Size = new System.Drawing.Size(124, 24);
+            this.btnEstatisticas.Size = new System.Drawing.Size(165, 30);
             this.btnEstatisticas.TabIndex = 9;
             this.btnEstatisticas.Text = "Estatísticas";
             this.btnEstatisticas.UseVisualStyleBackColor = true;
@@ -126,20 +126,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 268);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(51, 330);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 18);
+            this.label3.Size = new System.Drawing.Size(101, 22);
             this.label3.TabIndex = 8;
             this.label3.Text = "Relatórios";
             // 
             // btnModoCompra
             // 
             this.btnModoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModoCompra.Location = new System.Drawing.Point(14, 228);
-            this.btnModoCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModoCompra.Location = new System.Drawing.Point(19, 281);
+            this.btnModoCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModoCompra.Name = "btnModoCompra";
-            this.btnModoCompra.Size = new System.Drawing.Size(124, 24);
+            this.btnModoCompra.Size = new System.Drawing.Size(165, 30);
             this.btnModoCompra.TabIndex = 7;
             this.btnModoCompra.Text = "Modo Compra";
             this.btnModoCompra.UseVisualStyleBackColor = true;
@@ -147,10 +146,10 @@
             // btnPlanearLista
             // 
             this.btnPlanearLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlanearLista.Location = new System.Drawing.Point(14, 200);
-            this.btnPlanearLista.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPlanearLista.Location = new System.Drawing.Point(19, 246);
+            this.btnPlanearLista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlanearLista.Name = "btnPlanearLista";
-            this.btnPlanearLista.Size = new System.Drawing.Size(124, 24);
+            this.btnPlanearLista.Size = new System.Drawing.Size(165, 30);
             this.btnPlanearLista.TabIndex = 6;
             this.btnPlanearLista.Text = "Planear Lista";
             this.btnPlanearLista.UseVisualStyleBackColor = true;
@@ -159,42 +158,43 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 172);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(47, 212);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 18);
+            this.label2.Size = new System.Drawing.Size(107, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "Operações";
             // 
             // btnGestaoOrcamentos
             // 
             this.btnGestaoOrcamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestaoOrcamentos.Location = new System.Drawing.Point(14, 136);
-            this.btnGestaoOrcamentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGestaoOrcamentos.Location = new System.Drawing.Point(19, 167);
+            this.btnGestaoOrcamentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGestaoOrcamentos.Name = "btnGestaoOrcamentos";
-            this.btnGestaoOrcamentos.Size = new System.Drawing.Size(124, 24);
+            this.btnGestaoOrcamentos.Size = new System.Drawing.Size(165, 30);
             this.btnGestaoOrcamentos.TabIndex = 4;
             this.btnGestaoOrcamentos.Text = "Orçamentos";
             this.btnGestaoOrcamentos.UseVisualStyleBackColor = true;
+            this.btnGestaoOrcamentos.Click += new System.EventHandler(this.btnGestaoOrcamentos_Click);
             // 
             // btnGestaoArtigos
             // 
             this.btnGestaoArtigos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestaoArtigos.Location = new System.Drawing.Point(14, 107);
-            this.btnGestaoArtigos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGestaoArtigos.Location = new System.Drawing.Point(19, 132);
+            this.btnGestaoArtigos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGestaoArtigos.Name = "btnGestaoArtigos";
-            this.btnGestaoArtigos.Size = new System.Drawing.Size(124, 24);
+            this.btnGestaoArtigos.Size = new System.Drawing.Size(165, 30);
             this.btnGestaoArtigos.TabIndex = 3;
             this.btnGestaoArtigos.Text = "Artigos";
             this.btnGestaoArtigos.UseVisualStyleBackColor = true;
+            this.btnGestaoArtigos.Click += new System.EventHandler(this.btnGestaoArtigos_Click);
             // 
             // btnGestaoTiposArtigos
             // 
             this.btnGestaoTiposArtigos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestaoTiposArtigos.Location = new System.Drawing.Point(14, 79);
-            this.btnGestaoTiposArtigos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGestaoTiposArtigos.Location = new System.Drawing.Point(19, 97);
+            this.btnGestaoTiposArtigos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGestaoTiposArtigos.Name = "btnGestaoTiposArtigos";
-            this.btnGestaoTiposArtigos.Size = new System.Drawing.Size(124, 24);
+            this.btnGestaoTiposArtigos.Size = new System.Drawing.Size(165, 30);
             this.btnGestaoTiposArtigos.TabIndex = 2;
             this.btnGestaoTiposArtigos.Text = "Tipos Artigos ";
             this.btnGestaoTiposArtigos.UseVisualStyleBackColor = true;
@@ -203,10 +203,10 @@
             // btnGestaoUtilizadores
             // 
             this.btnGestaoUtilizadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestaoUtilizadores.Location = new System.Drawing.Point(14, 50);
-            this.btnGestaoUtilizadores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGestaoUtilizadores.Location = new System.Drawing.Point(19, 62);
+            this.btnGestaoUtilizadores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGestaoUtilizadores.Name = "btnGestaoUtilizadores";
-            this.btnGestaoUtilizadores.Size = new System.Drawing.Size(124, 24);
+            this.btnGestaoUtilizadores.Size = new System.Drawing.Size(165, 30);
             this.btnGestaoUtilizadores.TabIndex = 1;
             this.btnGestaoUtilizadores.Text = "Utilizadores";
             this.btnGestaoUtilizadores.UseVisualStyleBackColor = true;
@@ -216,10 +216,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(37, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 18);
+            this.label1.Size = new System.Drawing.Size(125, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gestão Base";
             // 
@@ -227,10 +226,9 @@
             // 
             this.lblUserAutenticado.AutoSize = true;
             this.lblUserAutenticado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserAutenticado.Location = new System.Drawing.Point(9, 7);
-            this.lblUserAutenticado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUserAutenticado.Location = new System.Drawing.Point(12, 9);
             this.lblUserAutenticado.Name = "lblUserAutenticado";
-            this.lblUserAutenticado.Size = new System.Drawing.Size(122, 26);
+            this.lblUserAutenticado.Size = new System.Drawing.Size(156, 32);
             this.lblUserAutenticado.TabIndex = 1;
             this.lblUserAutenticado.Text = "Bem vindo,";
             // 
@@ -241,11 +239,11 @@
             this.groupBoxDashBoard.Controls.Add(this.groupBox2);
             this.groupBoxDashBoard.Controls.Add(this.groupBox1);
             this.groupBoxDashBoard.Controls.Add(this.label4);
-            this.groupBoxDashBoard.Location = new System.Drawing.Point(176, 31);
-            this.groupBoxDashBoard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDashBoard.Location = new System.Drawing.Point(235, 38);
+            this.groupBoxDashBoard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxDashBoard.Name = "groupBoxDashBoard";
-            this.groupBoxDashBoard.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxDashBoard.Size = new System.Drawing.Size(808, 441);
+            this.groupBoxDashBoard.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxDashBoard.Size = new System.Drawing.Size(1077, 543);
             this.groupBoxDashBoard.TabIndex = 2;
             this.groupBoxDashBoard.TabStop = false;
             // 
@@ -253,11 +251,11 @@
             // 
             this.groupBox4.Controls.Add(this.dtavgHistoricoUltimasComprasFechadas);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(400, 245);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Location = new System.Drawing.Point(533, 302);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(391, 180);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(521, 222);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Histórico de Utilmas Compras Fechadas";
@@ -265,12 +263,12 @@
             // dtavgHistoricoUltimasComprasFechadas
             // 
             this.dtavgHistoricoUltimasComprasFechadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtavgHistoricoUltimasComprasFechadas.Location = new System.Drawing.Point(19, 37);
-            this.dtavgHistoricoUltimasComprasFechadas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtavgHistoricoUltimasComprasFechadas.Location = new System.Drawing.Point(25, 46);
+            this.dtavgHistoricoUltimasComprasFechadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtavgHistoricoUltimasComprasFechadas.Name = "dtavgHistoricoUltimasComprasFechadas";
             this.dtavgHistoricoUltimasComprasFechadas.RowHeadersWidth = 51;
             this.dtavgHistoricoUltimasComprasFechadas.RowTemplate.Height = 24;
-            this.dtavgHistoricoUltimasComprasFechadas.Size = new System.Drawing.Size(359, 124);
+            this.dtavgHistoricoUltimasComprasFechadas.Size = new System.Drawing.Size(479, 153);
             this.dtavgHistoricoUltimasComprasFechadas.TabIndex = 2;
             // 
             // groupBox3
@@ -278,11 +276,11 @@
             this.groupBox3.Controls.Add(this.lblAlerta);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(400, 50);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(533, 62);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(391, 176);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(521, 217);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Alertas e Apoio às Decisões";
@@ -290,19 +288,18 @@
             // lblAlerta
             // 
             this.lblAlerta.AutoSize = true;
-            this.lblAlerta.Location = new System.Drawing.Point(111, 77);
-            this.lblAlerta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAlerta.Location = new System.Drawing.Point(148, 95);
             this.lblAlerta.Name = "lblAlerta";
-            this.lblAlerta.Size = new System.Drawing.Size(20, 24);
+            this.lblAlerta.Size = new System.Drawing.Size(25, 29);
             this.lblAlerta.TabIndex = 1;
             this.lblAlerta.Text = " .";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(19, 68);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 84);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 41);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -311,11 +308,11 @@
             this.groupBox2.Controls.Add(this.btnModoCompra2);
             this.groupBox2.Controls.Add(this.dtavgListaDeComprasAtivas);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 245);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(21, 302);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(357, 180);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(476, 222);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de Compras Ativas";
@@ -323,10 +320,10 @@
             // btnModoCompra2
             // 
             this.btnModoCompra2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModoCompra2.Location = new System.Drawing.Point(220, 148);
-            this.btnModoCompra2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModoCompra2.Location = new System.Drawing.Point(293, 182);
+            this.btnModoCompra2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModoCompra2.Name = "btnModoCompra2";
-            this.btnModoCompra2.Size = new System.Drawing.Size(122, 28);
+            this.btnModoCompra2.Size = new System.Drawing.Size(163, 34);
             this.btnModoCompra2.TabIndex = 1;
             this.btnModoCompra2.Text = "Modo Compra";
             this.btnModoCompra2.UseVisualStyleBackColor = true;
@@ -334,12 +331,12 @@
             // dtavgListaDeComprasAtivas
             // 
             this.dtavgListaDeComprasAtivas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtavgListaDeComprasAtivas.Location = new System.Drawing.Point(12, 27);
-            this.dtavgListaDeComprasAtivas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtavgListaDeComprasAtivas.Location = new System.Drawing.Point(16, 33);
+            this.dtavgListaDeComprasAtivas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtavgListaDeComprasAtivas.Name = "dtavgListaDeComprasAtivas";
             this.dtavgListaDeComprasAtivas.RowHeadersWidth = 51;
             this.dtavgListaDeComprasAtivas.RowTemplate.Height = 24;
-            this.dtavgListaDeComprasAtivas.Size = new System.Drawing.Size(329, 111);
+            this.dtavgListaDeComprasAtivas.Size = new System.Drawing.Size(439, 137);
             this.dtavgListaDeComprasAtivas.TabIndex = 0;
             // 
             // groupBox1
@@ -348,11 +345,11 @@
             this.groupBox1.Controls.Add(this.lblLimite);
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 50);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(21, 62);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(357, 176);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(476, 217);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Orçamento Atual: {Mês/Ano Atual}";
@@ -361,10 +358,9 @@
             // 
             this.lblGasto.AutoSize = true;
             this.lblGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGasto.Location = new System.Drawing.Point(222, 122);
-            this.lblGasto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGasto.Location = new System.Drawing.Point(296, 150);
             this.lblGasto.Name = "lblGasto";
-            this.lblGasto.Size = new System.Drawing.Size(50, 17);
+            this.lblGasto.Size = new System.Drawing.Size(59, 20);
             this.lblGasto.TabIndex = 3;
             this.lblGasto.Text = "Gasto:";
             // 
@@ -372,41 +368,39 @@
             // 
             this.lblLimite.AutoSize = true;
             this.lblLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLimite.Location = new System.Drawing.Point(16, 122);
-            this.lblLimite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLimite.Location = new System.Drawing.Point(21, 150);
             this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(49, 17);
+            this.lblLimite.Size = new System.Drawing.Size(60, 20);
             this.lblLimite.TabIndex = 2;
             this.lblLimite.Text = "Limite:";
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(20, 80);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar1.Location = new System.Drawing.Point(27, 98);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(316, 28);
+            this.progressBar1.Size = new System.Drawing.Size(421, 34);
             this.progressBar1.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 15);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(16, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 24);
+            this.label4.Size = new System.Drawing.Size(140, 29);
             this.label4.TabIndex = 0;
             this.label4.Text = "Dashboard";
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 482);
+            this.ClientSize = new System.Drawing.Size(1324, 593);
             this.Controls.Add(this.groupBoxDashBoard);
             this.Controls.Add(this.lblUserAutenticado);
             this.Controls.Add(this.groupBoxFuncionalidades);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

@@ -7,13 +7,13 @@ namespace Ishopping_Project.Controlleres
 {
     internal class FormTipoArtigoController
     {
-        // Preencher DataView com os Tipos de Artigo
+        
         public static object ObterTodosTipos()
        {
             using (IShoppingContext db = new IShoppingContext())
             {
            
-            return db.TiposArtigo
+            return db.TiposArtigos
                      .Select(t => new { t.Id, t.Nome })
                      .OrderBy(t => t.Nome)
                      .ToList();
@@ -28,14 +28,14 @@ namespace Ishopping_Project.Controlleres
             {
                 using (IShoppingContext db = new IShoppingContext())
                 {
-                    if (db.TiposArtigo.Any(t => t.Nome.ToLower() == nome.ToLower()))
+                    if (db.TiposArtigos.Any(t => t.Nome.ToLower() == nome.ToLower()))
                     {
                         mensagem = "Já existe um tipo de artigo com esse nome.";
                         return false;
                     }
 
                     var novoTipo = new TipoArtigo { Nome = nome };
-                    db.TiposArtigo.Add(novoTipo);
+                    db.TiposArtigos.Add(novoTipo);
                     db.SaveChanges();
 
                     mensagem = "Tipo de artigo gravado com sucesso.";
@@ -57,7 +57,7 @@ namespace Ishopping_Project.Controlleres
             {
                 using (IShoppingContext db = new IShoppingContext())
                 {
-                    var tipoArtigo = db.TiposArtigo.Find(id);
+                    var tipoArtigo = db.TiposArtigos.Find(id);
                     if (tipoArtigo != null)
                     {
                         tipoArtigo.Nome = novoNome;
@@ -85,10 +85,10 @@ namespace Ishopping_Project.Controlleres
             {
                 using (IShoppingContext db = new IShoppingContext())
                 {
-                    var tipoArtigo = db.TiposArtigo.Find(id);
+                    var tipoArtigo = db.TiposArtigos.Find(id);
                     if (tipoArtigo != null)
                     {
-                        db.TiposArtigo.Remove(tipoArtigo);
+                        db.TiposArtigos.Remove(tipoArtigo);
                         db.SaveChanges();
                         mensagem = "Tipo de artigo apagado com sucesso.";
                         return true;

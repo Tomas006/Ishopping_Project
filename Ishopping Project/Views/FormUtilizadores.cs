@@ -34,10 +34,32 @@ namespace Ishopping_Project.Views
 
            
             dataGridViewUtilizadores.AutoGenerateColumns = true;
-
-            dataGridViewUtilizadores.DataSource = null;
             dataGridViewUtilizadores.DataSource = FormUtilizadorController.ObterTodosUtilizadores();
 
+            
+            if (dataGridViewUtilizadores.Columns["Id"] != null)
+            {
+                dataGridViewUtilizadores.Columns["Id"].HeaderText = "ID";
+                dataGridViewUtilizadores.Columns["Id"].Width = 60;
+
+           
+            if (dataGridViewUtilizadores.Columns["Username"] != null)
+            {
+                dataGridViewUtilizadores.Columns["Username"].HeaderText = "Nome de Utilizador";
+                dataGridViewUtilizadores.Columns["Username"].Width = 180;
+            }
+
+            if (dataGridViewUtilizadores.Columns["Password"] != null)
+            {
+                dataGridViewUtilizadores.Columns["Password"].Visible = false;
+            }
+
+            if (dataGridViewUtilizadores.Columns["Compras"] != null)
+            {
+                dataGridViewUtilizadores.Columns["Compras"].Visible = false;
+            }
+
+            
             dataGridViewUtilizadores.ClearSelection();
             if (dataGridViewUtilizadores.CurrentRow != null)
             {
@@ -45,10 +67,12 @@ namespace Ishopping_Project.Views
             }
 
             dataGridViewUtilizadores.SelectionChanged += dataGridViewUtilizadores_SelectionChanged;
+
+          
             limparCampos();
         }
 
-     
+
         private void dataGridViewUtilizadores_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -187,6 +211,11 @@ namespace Ishopping_Project.Views
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -10,8 +10,8 @@ namespace IShopping.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public decimal Preco { get; set; } 
         public int TipoArtigoId { get; set; }
         public virtual TipoArtigo TipoArtigo { get; set; }
-
-    } 
+    }
 }

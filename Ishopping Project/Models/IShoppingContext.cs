@@ -15,7 +15,7 @@ namespace IShopping.Models
         }
 
         public DbSet<Utilizador> Utilizadores { get; set; }
-        public DbSet<TipoArtigo> TiposArtigo { get; set; }
+        public DbSet<TipoArtigo> TiposArtigos { get; set; }
         public DbSet<Artigo> Artigos { get; set; }
         public DbSet<Orcamento> Orcamentos { get; set; }
         public DbSet<Compra> Compras { get; set; }

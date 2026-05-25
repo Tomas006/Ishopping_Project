@@ -54,5 +54,29 @@ namespace Ishopping_Project.Views
             this.Show();
 
         }
+
+        private void btnGestaoArtigos_Click(object sender, EventArgs e)
+        {
+            FormArtigos formArtigos = new FormArtigos();
+
+
+            this.Hide();
+
+            formArtigos.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnGestaoOrcamentos_Click(object sender, EventArgs e)
+        {
+            FormOrcamentos formOrcamentos = new FormOrcamentos();
+
+
+            this.Hide();
+
+            formOrcamentos.ShowDialog();
+
+            this.Show();
+        }
     }
     }
