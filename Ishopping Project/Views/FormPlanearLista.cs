@@ -11,34 +11,27 @@ namespace Ishopping_Project.Views
 {
     public partial class FormPlanearLista : Form
     {
-        // Carrinho temporário em memória RAM ligado à DataSource da Grelha
         private BindingList<ItemPrevisto> _carrinhoEmMemoria = new BindingList<ItemPrevisto>();
 
-        // DICIONÁRIO DE SEGURANÇA: Guarda a relação (ArtigoID -> Nome do Tipo)
         private Dictionary<int, string> _cacheTiposArtigos = new Dictionary<int, string>();
 
-        // ID do utilizador ativo no sistema
         private int idUtilizadorLogado = 1;
         private int _compraIdAtual = 0;
 
-        // 1. Construtor Padrão (Usado para Nova Lista)
         public FormPlanearLista()
         {
             InitializeComponent();
             InicializarConfiguracoesBase();
 
-            // Define o comportamento inicial para nova lista diretamente aqui
             textBoxDataCriacao.Text = DateTime.Now.ToString("dd/MM/yyyy");
             textBoxDataCriacao.ReadOnly = true;
 
-            // Uma nova lista começa estritamente como "PLANEADA" e o utilizador não deve alterar à mão
             comboBoxEstado.SelectedIndex = 0;
             comboBoxEstado.Enabled = false;
 
             AtualizarOrcamentoETotais();
         }
 
-        // 2. Construtor com ID (Usado para Carregar Lista Existente)
         public FormPlanearLista(int compraId)
         {
             InitializeComponent();
@@ -48,19 +41,16 @@ namespace Ishopping_Project.Views
             CarregarDadosDaListaExistente(_compraIdAtual);
         }
 
-        // Centraliza a configuração inicial para evitar código duplicado
         private void InicializarConfiguracoesBase()
         {
             dataGridViewLinhas.AutoGenerateColumns = false;
             dataGridViewLinhas.DataSource = _carrinhoEmMemoria;
             dataGridViewLinhas.CellFormatting += DataGridViewLinhas_CellFormatting;
 
-            // Carrega os estados possíveis na ComboBox
             comboBoxEstado.Items.Clear();
             comboBoxEstado.Items.AddRange(new string[] { "PLANEADA", "EM COMPRA", "FECHADA" });
             comboBoxEstado.SelectedIndex = 0;
 
-            // Carrega os artigos da BD e mapeia o cache de tipos
             CarregarComboArtigos();
             ConfigurarGrelha();
         }
@@ -70,7 +60,6 @@ namespace Ishopping_Project.Views
             comboBoxArtigos.Focus();
         }
 
-        // Carrega os dados da lista e valida se está FECHADA para aplicar o modo ReadOnly
         private void CarregarDadosDaListaExistente(int id)
         {
             try
@@ -82,7 +71,6 @@ namespace Ishopping_Project.Views
                     textBoxDataCriacao.Text = compra.DataCriacao.ToString("dd/MM/yyyy");
                     textBoxDataCriacao.ReadOnly = true;
 
-                    // Mapeamento dinâmico e seguro da string vinda do modelo para o index da Combo
                     if (!string.IsNullOrEmpty(compra.Estado))
                     {
                         int indexEstado = comboBoxEstado.Items.IndexOf(compra.Estado.ToUpper());
@@ -93,7 +81,6 @@ namespace Ishopping_Project.Views
                         comboBoxEstado.SelectedIndex = 0;
                     }
 
-                    // Por segurança do fluxo, a ComboBox fica desativada para edição manual direta neste ecrã
                     comboBoxEstado.Enabled = false;
 
                     _carrinhoEmMemoria.Clear();
@@ -102,7 +89,7 @@ namespace Ishopping_Project.Views
                         var itemPrevisto = new ItemPrevisto
                         {
                             ArtigoId = item.ArtigoId,
-                            QuantidadePrevista = item.QuantidadeComprada, // Se o modelo usar QuantidadePrevista, altera aqui
+                            QuantidadePrevista = item.QuantidadeComprada, 
                             Artigo = item.Artigo
                         };
                         _carrinhoEmMemoria.Add(itemPrevisto);
@@ -113,7 +100,6 @@ namespace Ishopping_Project.Views
 
                     AtualizarOrcamentoETotais();
 
-                    // REQUISITO 13 e 22 (g): Se a compra já estiver "FECHADA", bloqueia as ações do ecrã (Apenas Leitura)
                     if (compra.Estado != null && compra.Estado.ToUpper() == "FECHADA")
                     {
                         ConfigurarModoApenasLeitura(true);
@@ -131,7 +117,6 @@ namespace Ishopping_Project.Views
             }
         }
 
-        // Ativa ou desativa os controlos dependendo do estado da lista
         private void ConfigurarModoApenasLeitura(bool apenasLeitura)
         {
             bool ativaControlos = !apenasLeitura;
@@ -143,7 +128,6 @@ namespace Ishopping_Project.Views
             btnGuardar.Enabled = ativaControlos;
             btnLimpar.Enabled = ativaControlos;
 
-            // A tabela pode ficar visível para consulta, mas bloqueia interações directas se necessário
             dataGridViewLinhas.ReadOnly = apenasLeitura;
         }
 
@@ -330,7 +314,6 @@ namespace Ishopping_Project.Views
             comboBoxArtigos.SelectedIndex = -1;
             numericUpDownQuantidadePlaneada.Value = 1;
 
-            // Ao limpar, garante que o ecrã volta ao estado nativo editável "PLANEADA"
             comboBoxEstado.SelectedIndex = 0;
             ConfigurarModoApenasLeitura(false);
 
@@ -374,6 +357,11 @@ namespace Ishopping_Project.Views
             {
                 MessageBox.Show("Erro ao selecionar a lista: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FormPlanearLista_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

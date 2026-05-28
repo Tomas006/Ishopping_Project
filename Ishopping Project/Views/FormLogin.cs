@@ -32,7 +32,7 @@ namespace Ishopping_Project
 
             if (ok)
             {
-                // Define o resultado como OK e fecha este formulário
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

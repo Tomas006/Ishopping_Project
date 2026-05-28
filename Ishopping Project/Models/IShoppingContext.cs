@@ -12,7 +12,7 @@ namespace IShopping.Models
     {
         public IShoppingContext() : base("IShoppingContext")
         {
-            // Isto vai apagar e recriar a BD sempre que o modelo mudar (ideal para desenvolvimento)
+            
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<IShoppingContext>());
             this.Database.Initialize(force: false);
         }

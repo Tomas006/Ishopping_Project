@@ -51,7 +51,7 @@ namespace IShopping.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // Se o utilizador não existir, vai cair aqui em vez de crashar o programa!
+                   
                     return "Erro ao guardar: Garante que o ID do utilizador logado existe na tabela de Utilizadores.";
                 }
             }

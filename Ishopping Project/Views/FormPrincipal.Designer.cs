@@ -56,7 +56,7 @@
             this.lblLimite = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVerListas = new System.Windows.Forms.Button();
             this.groupBoxFuncionalidades.SuspendLayout();
             this.groupBoxDashBoard.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -70,7 +70,7 @@
             // 
             // groupBoxFuncionalidades
             // 
-            this.groupBoxFuncionalidades.Controls.Add(this.button1);
+            this.groupBoxFuncionalidades.Controls.Add(this.btnVerListas);
             this.groupBoxFuncionalidades.Controls.Add(this.btnTerminarSessao);
             this.groupBoxFuncionalidades.Controls.Add(this.btnExportarCSV);
             this.groupBoxFuncionalidades.Controls.Add(this.btnEstatisticas);
@@ -396,16 +396,16 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Dashboard";
             // 
-            // button1
+            // btnVerListas
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(19, 202);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Ver Listas";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVerListas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerListas.Location = new System.Drawing.Point(19, 202);
+            this.btnVerListas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVerListas.Name = "btnVerListas";
+            this.btnVerListas.Size = new System.Drawing.Size(165, 30);
+            this.btnVerListas.TabIndex = 12;
+            this.btnVerListas.Text = "Ver Listas";
+            this.btnVerListas.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 
@@ -468,6 +468,6 @@
         private System.Windows.Forms.Button btnModoCompra2;
         private System.Windows.Forms.DataGridView dtavgListaDeComprasAtivas;
         private System.Windows.Forms.DataGridView dtavgHistoricoUltimasComprasFechadas;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVerListas;
     }
 }

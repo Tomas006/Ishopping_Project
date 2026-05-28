@@ -22,35 +22,27 @@ namespace Ishopping_Project.Views
         {
             dataGridViewTiposArtigos.SelectionChanged -= dataGridViewTiposArtigos_SelectionChanged;
 
-            // 1. Atualizar o DataSource com a lista vinda do teu Controlador de Tipos
             dataGridViewTiposArtigos.DataSource = null;
             dataGridViewTiposArtigos.DataSource = FormTipoArtigoController.ObterTodosTipos();
 
-            // 2. Customizar os Cabeçalhos e limpar a tabela (Estilo Cinema / Artigos!)
 
-            // Mudar o nome da coluna do ID e dar uma largura fixa mais curta
             if (dataGridViewTiposArtigos.Columns["Id"] != null)
             {
                 dataGridViewTiposArtigos.Columns["Id"].HeaderText = "ID";
                 dataGridViewTiposArtigos.Columns["Id"].Width = 60;
             }
 
-            // Mudar o nome da coluna do Nome do Tipo de Artigo
             if (dataGridViewTiposArtigos.Columns["Nome"] != null)
             {
                 dataGridViewTiposArtigos.Columns["Nome"].HeaderText = "Tipo de Artigo";
-                dataGridViewTiposArtigos.Columns["Nome"].Width = 200; // Dá espaço para nomes mais longos
+                dataGridViewTiposArtigos.Columns["Nome"].Width = 200; 
             }
 
-            // ESCONDER PROPRIEDADES VIRTUAIS (Super importante no Entity Framework!)
-            // Se o teu modelo 'TipoArtigo' tiver uma lista virtual de Artigos (public virtual ICollection<Artigo> Artigos),
-            // a DataGridView vai tentar criar uma coluna para ela. Escondemos aqui para não quebrar o layout:
             if (dataGridViewTiposArtigos.Columns["Artigos"] != null)
             {
                 dataGridViewTiposArtigos.Columns["Artigos"].Visible = false;
             }
 
-            // 3. Limpar as seleções automáticas da tabela ao carregar
             dataGridViewTiposArtigos.ClearSelection();
             if (dataGridViewTiposArtigos.CurrentRow != null)
             {
@@ -59,7 +51,6 @@ namespace Ishopping_Project.Views
 
             dataGridViewTiposArtigos.SelectionChanged += dataGridViewTiposArtigos_SelectionChanged;
 
-            // Executa a tua função para limpar as caixas de texto
             limparCampos();
         }
 

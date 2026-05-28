@@ -23,7 +23,6 @@ namespace Ishopping_Project.Views
             dataGridViewLista.AutoGenerateColumns = false;
             dataGridViewLista.CellFormatting += DataGridViewLista_CellFormatting;
 
-            // Eventos para controlar o clique em tempo real na checkbox da grelha
             dataGridViewLista.CurrentCellDirtyStateChanged += DataGridViewLista_CurrentCellDirtyStateChanged;
             dataGridViewLista.CellValueChanged += DataGridViewLista_CellValueChanged;
         }
@@ -40,7 +39,6 @@ namespace Ishopping_Project.Views
                 return;
             }
 
-            // REQUISITO: Se a lista já foi FECHADA, entra estritamente em modo de leitura
             if (_compraAtiva.Estado != null && _compraAtiva.Estado.ToUpper() == "FECHADA")
             {
                 ConfigurarModoApenasLeitura();
@@ -49,7 +47,6 @@ namespace Ishopping_Project.Views
             }
             else
             {
-                // REQUISITO 19: Transição AUTOMÁTICA de estado ao entrar no ecrã de execução da compra
                 try
                 {
                     int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
@@ -57,7 +54,7 @@ namespace Ishopping_Project.Views
                     _compraAtiva.AlteradoPorId = utilizadorId;
                     _compraAtiva.DataAlteracao = DateTime.Now;
 
-                    // Persiste a mudança de estado imediatamente na BD via controlador
+                   
                     FormModoCompraController.AtualizarEstadoCompra(_compraAtiva);
                 }
                 catch (Exception ex)
@@ -76,7 +73,7 @@ namespace Ishopping_Project.Views
 
         private void FormModoCompra_Load(object sender, EventArgs e)
         {
-            // Foco inicial num controlo neutro ou útil do utilizador
+            
             comboBoxTipo.Focus();
         }
 
@@ -84,7 +81,7 @@ namespace Ishopping_Project.Views
         {
             dataGridViewLista.Columns.Clear();
 
-            // 1. Checkbox de Adquirido
+          
             dataGridViewLista.Columns.Add(new DataGridViewCheckBoxColumn
             {
                 Name = "AdquiridoCol",
@@ -94,7 +91,6 @@ namespace Ishopping_Project.Views
                 ReadOnly = false
             });
 
-            // 2. ID do Item
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Id",
@@ -103,16 +99,15 @@ namespace Ishopping_Project.Views
                 ReadOnly = true
             });
 
-            // 3. Nome do Artigo
+            
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "Nome", // Vinculado à propriedade de exibição do ItemCompra/Artigo
+                DataPropertyName = "Nome", 
                 HeaderText = "Artigo",
                 Width = 180,
                 ReadOnly = true
             });
 
-            // 4. Quantidade Comprada
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "QuantidadeComprada",
@@ -121,7 +116,7 @@ namespace Ishopping_Project.Views
                 ReadOnly = true
             });
 
-            // 5. Preço Unitário
+            
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "PrecoUnitarioCol",
@@ -130,7 +125,7 @@ namespace Ishopping_Project.Views
                 ReadOnly = true
             });
 
-            // 6. Total Calculado (Qtd * Preço)
+          
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "TotalCol",
@@ -157,10 +152,10 @@ namespace Ishopping_Project.Views
                 {
                     int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
 
-                    // Atualiza a propriedade local explicitamente para forçar o recálculo correto antes de ir à BD
+                    
                     item.Adquirido = (bool)row.Cells["AdquiridoCol"].Value;
 
-                    // Grava imediatamente a alteração do clique na BD para salvaguardar os dados contra quebras de energia
+                    
                     FormModoCompraController.MarcarItemComoAdquirido(item.Id, item.QuantidadeComprada, item.PrecoUnitario, utilizadorId);
                 }
 
@@ -172,11 +167,11 @@ namespace Ishopping_Project.Views
         {
             if (_itensGrelha == null) return;
 
-            // 1. Contagem total baseada em TODOS os itens ativos na compra
+           
             int totalItens = _itensGrelha.Count;
             int adquiridos = _itensGrelha.Count(i => i.Adquirido);
 
-            // 2. Atualizar a ProgressBar com segurança
+            
             progressBarItensPrevistos.Minimum = 0;
             progressBarItensPrevistos.Maximum = totalItens > 0 ? totalItens : 1;
 
@@ -185,10 +180,10 @@ namespace Ishopping_Project.Views
 
             progressBarItensPrevistos.Value = adquiridos;
 
-            // 3. Atualizar a Label de progresso textual
+            
             labellProgressoItens.Text = $"{adquiridos} de {totalItens}";
 
-            // 4. Cálculos Financeiros (Apenas o que está de facto selecionado no carrinho real)
+            
             decimal totalCarrinho = _itensGrelha
                 .Where(i => i.Adquirido)
                 .Sum(i => i.QuantidadeComprada * i.PrecoUnitario);
@@ -199,10 +194,10 @@ namespace Ishopping_Project.Views
             labelTotalCarrinho.Text = $"{totalCarrinho:N2} €";
             labelOrcamentoDisponivel.Text = $"{disponivel:N2} €";
 
-            // Exibe a label com o estado atualizado no cabeçalho do ecrã
+            
             if (labelEstadoAtual != null) labelEstadoAtual.Text = _compraAtiva.Estado;
 
-            // 5. Alerta visual do Painel de Orçamento Excedido
+           
             if (totalCarrinho > _orcamentoMensal)
             {
                 labelOrcamentoDisponivel.ForeColor = System.Drawing.Color.Red;
@@ -324,7 +319,7 @@ namespace Ishopping_Project.Views
             {
                 int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
 
-                // Executa a limpeza delegando a responsabilidade ao Controller (mantendo isolamento de camadas)
+               
                 bool limpoComSucesso = FormModoCompraController.LimparCarrinhoEExtras(_compraAtiva.Id, utilizadorId);
 
                 if (limpoComSucesso)
@@ -347,10 +342,10 @@ namespace Ishopping_Project.Views
             {
                 int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
 
-                // Garante a submissão de edições pendentes na UI antes de salvar
+               
                 dataGridViewLista.EndEdit();
 
-                // Chama o fecho e internamente o controller muda o estado para "FECHADA" e tranca as variáveis
+              
                 if (FormModoCompraController.FecharCompra(_compraAtiva.Id, utilizadorId))
                 {
                     MessageBox.Show("Compra FECHADA com sucesso! Os dados foram guardados e arquivados.", "Sucesso",
@@ -367,7 +362,7 @@ namespace Ishopping_Project.Views
 
         private void ConfigurarModoApenasLeitura()
         {
-            // Tranca os controlos visuais de mutação de dados para obedecer à Regra 13 e 19
+           
             dataGridViewLista.ReadOnly = true;
             comboBoxTipo.Enabled = false;
             comboBoxArtigo.Enabled = false;

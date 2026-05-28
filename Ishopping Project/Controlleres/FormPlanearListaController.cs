@@ -8,7 +8,7 @@ namespace IShopping.Controllers
 {
     public static class FormPlanearListaController
     {
-        // 1. CARREGAR ARTIGOS PARA A COMBOBOX (Com Include para evitar ObjectDisposedException)
+      
         public static List<Artigo> ObterArtigos()
         {
             using (IShoppingContext db = new IShoppingContext())
@@ -20,7 +20,6 @@ namespace IShopping.Controllers
             }
         }
 
-        // 2. OBTER VALOR DO ORÇAMENTO DO MÊS ATUAL
         public static decimal ObterOrcamentoAtual()
         {
             using (IShoppingContext db = new IShoppingContext())
@@ -35,7 +34,7 @@ namespace IShopping.Controllers
             }
         }
 
-        // 3. VAI BUSCAR TODAS AS COMPRAS EM ABERTO
+      
         public static List<Compra> ObterListasPlaneadasEmAberto()
         {
             using (var db = new IShoppingContext())
@@ -50,7 +49,7 @@ namespace IShopping.Controllers
             }
         }
 
-        // 4. CARREGA OS ITENS DE UMA COMPRA ESPECÍFICA (Para preencher a Grid de planeamento)
+        
         public static List<ItemCompra> ObterItensDaCompra(int compraId)
         {
             using (var db = new IShoppingContext())
@@ -62,7 +61,7 @@ namespace IShopping.Controllers
             }
         }
 
-        // 5. CARREGA A COMPRA COM OS DETALHES TODOS MASTIGADOS PARA O PLANEAMENTO NÃO REBENTAR
+    
         public static Compra ObterCompraCompletaParaPlaneamento(int compraId)
         {
             using (var db = new IShoppingContext())
@@ -75,7 +74,7 @@ namespace IShopping.Controllers
             }
         }
 
-        // 6. GRAVAR NOVA COMPRA E OS ITENS PREVISTOS (INSERT)
+    
         public static string GravarPlaneamento(string nomeLista, List<ItemPrevisto> itens, int idUtilizador)
         {
             try
@@ -126,7 +125,6 @@ namespace IShopping.Controllers
             }
         }
 
-        // 7. ATUALIZAR UMA LISTA JÁ EXISTENTE (UPDATE)
         public static string AtualizarPlaneamento(int compraId, List<ItemPrevisto> itens, int idUtilizador)
         {
             try

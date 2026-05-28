@@ -93,7 +93,6 @@ namespace Ishopping_Project.Views
 
         private void btnModoCompra_Click(object sender, EventArgs e)
         {
-            // 1. Vai buscar as compras em aberto (retorna List<Compra>)
             var comprasEmAberto = FormPlanearListaController.ObterListasPlaneadasEmAberto();
 
             if (comprasEmAberto == null || comprasEmAberto.Count == 0)
@@ -103,7 +102,6 @@ namespace Ishopping_Project.Views
                 return;
             }
 
-            // 2. Abre o teu formulário visual passando a lista correta
             using (var formSelecao = new FormEscolherListaExistente(comprasEmAberto))
             {
                 if (formSelecao.ShowDialog() == DialogResult.OK)

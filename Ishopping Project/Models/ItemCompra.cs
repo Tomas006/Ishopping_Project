@@ -13,20 +13,20 @@ namespace IShopping.Models
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        // Mantive o teu padrão "QuantidadeComprada"
+        
         public int QuantidadeComprada { get; set; }
         public decimal PrecoUnitario { get; set; }
 
-        // Campos vitais para os Requisitos 14, 15 e 17 do Modo Compra:
-        public bool PreviaComprar { get; set; } // True = Previsto, False = Extra/Não previsto
-        public bool Adquirido { get; set; }      // Se já foi feito o "check" no carrinho
-        public string Observacoes { get; set; } // Observações dos extras
+        
+        public bool PreviaComprar { get; set; } 
+        public bool Adquirido { get; set; }      
+        public string Observacoes { get; set; } 
 
-        // Ligação com o Artigo (Requisito 11 e 15)
+        
         public int ArtigoId { get; set; }
         public virtual Artigo Artigo { get; set; }
 
-        // Ligações de Auditoria e Compra
+       
         public int CriadoPorId { get; set; }
         public virtual Utilizador CriadoPor { get; set; }
         public int? AlteradoPorId { get; set; }

@@ -23,7 +23,7 @@ namespace IShopping.Controllers
         {
             using (var db = new IShoppingContext())
             {
-                // Carrega a compra com os relacionamentos necessários, independentemente do Estado (a View valida se está FECHADA)
+             
                 return db.Compras
                     .Include("Itens")
                     .Include("Itens.Artigo")
@@ -58,8 +58,6 @@ namespace IShopping.Controllers
                     .ToList();
             }
         }
-
-        // 🔥 ADICIONADO: Atualiza o estado da compra ("EM COMPRA") de forma imediata na BD ao abrir o formulário
         public static bool AtualizarEstadoCompra(Compra compraModificada)
         {
             using (var db = new IShoppingContext())
@@ -90,7 +88,7 @@ namespace IShopping.Controllers
                     PrecoUnitario = preco,
                     Observacoes = observacoes,
                     PreviaComprar = false,
-                    Adquirido = true, // Como foi apanhado na hora no supermercado, entra logo no carrinho
+                    Adquirido = true, 
                     CriadoPorId = utilizadorId,
                     DataCriacao = DateTime.Now
                 };
@@ -107,7 +105,7 @@ namespace IShopping.Controllers
                 var item = db.ItensCompra.Find(itemId);
                 if (item == null) return false;
 
-                // Alterna ou define como adquirido com base no clique da UI
+                
                 item.Adquirido = !item.Adquirido;
                 item.QuantidadeComprada = quantidade;
                 item.PrecoUnitario = preco;
@@ -119,18 +117,18 @@ namespace IShopping.Controllers
             }
         }
 
-        // 🔥 ADICIONADO: Trata de limpar o carrinho (Botão Limpar) isolando o Entity Framework dentro do Controller
+       
         public static bool LimparCarrinhoEExtras(int compraId, int utilizadorId)
         {
             using (var db = new IShoppingContext())
             {
                 try
                 {
-                    // 1. Remove os itens que NÃO eram previstos (Artigos Extras adicionados no ecrã)
+                    
                     var itensExtras = db.ItensCompra.Where(i => i.CompraId == compraId && !i.PreviaComprar);
                     db.ItensCompra.RemoveRange(itensExtras);
 
-                    // 2. Desmarca os itens que eram planeados (Tira o visto do "No Caminho?")
+                    
                     var itensPrevistos = db.ItensCompra.Where(i => i.CompraId == compraId && i.PreviaComprar);
                     foreach (var item in itensPrevistos)
                     {
@@ -155,7 +153,7 @@ namespace IShopping.Controllers
                 var compra = db.Compras.Find(compraId);
                 if (compra == null) return false;
 
-                // Garante que muda o booleano histórico E a string do Estado mapeada
+                
                 compra.EstaFechada = true;
                 compra.Estado = "FECHADA";
                 compra.DataFecho = DateTime.Now;
