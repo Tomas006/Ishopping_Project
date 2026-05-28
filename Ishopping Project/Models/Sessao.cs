@@ -8,7 +8,7 @@ namespace IShopping.Models
 {
     public class Sessao
     {
-
         public static string UtilizadorAtual { get; set; }
+        public static Utilizador UtilizadorAtualObj { get; set; } // ← adiciona isto
     }
 }

@@ -42,6 +42,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -57,7 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlleres\FormArtigoController.cs" />
+    <Compile Include="Controlleres\FormModoCompraController.cs" />
     <Compile Include="Controlleres\FormOrcamentosController.cs" />
+    <Compile Include="Controlleres\FormPlanearListaController.cs" />
     <Compile Include="Controlleres\FormPrincipalController.cs" />
     <Compile Include="Controlleres\FormLoginController.cs" />
     <Compile Include="Controlleres\FormTipoArtigoController.cs" />
@@ -70,12 +73,26 @@
     <Compile Include="Migrations\202605232038484_AdicionarPrecoAoArtigo.Designer.cs">
       <DependentUpon>202605232038484_AdicionarPrecoAoArtigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202605271700039_AtualizacaoModoCompra.cs" />
+    <Compile Include="Migrations\202605271700039_AtualizacaoModoCompra.Designer.cs">
+      <DependentUpon>202605271700039_AtualizacaoModoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202605282115051_AdicionarEstadoCompra.cs" />
+    <Compile Include="Migrations\202605282115051_AdicionarEstadoCompra.Designer.cs">
+      <DependentUpon>202605282115051_AdicionarEstadoCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\FormArtigos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FormArtigos.Designer.cs">
       <DependentUpon>FormArtigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormEscolherListaExistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormEscolherListaExistente.Designer.cs">
+      <DependentUpon>FormEscolherListaExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
@@ -95,11 +112,23 @@
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FormModoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormModoCompra.Designer.cs">
+      <DependentUpon>FormModoCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormOrcamentos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FormOrcamentos.Designer.cs">
       <DependentUpon>FormOrcamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormPlanearLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormPlanearLista.Designer.cs">
+      <DependentUpon>FormPlanearLista.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -125,6 +154,12 @@
     <EmbeddedResource Include="Migrations\202605232038484_AdicionarPrecoAoArtigo.resx">
       <DependentUpon>202605232038484_AdicionarPrecoAoArtigo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202605271700039_AtualizacaoModoCompra.resx">
+      <DependentUpon>202605271700039_AtualizacaoModoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202605282115051_AdicionarEstadoCompra.resx">
+      <DependentUpon>202605282115051_AdicionarEstadoCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -137,11 +172,20 @@
     <EmbeddedResource Include="Views\FormArtigos.resx">
       <DependentUpon>FormArtigos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormEscolherListaExistente.resx">
+      <DependentUpon>FormEscolherListaExistente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormModoCompra.resx">
+      <DependentUpon>FormModoCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormOrcamentos.resx">
       <DependentUpon>FormOrcamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormPlanearLista.resx">
+      <DependentUpon>FormPlanearLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

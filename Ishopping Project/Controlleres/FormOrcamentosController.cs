@@ -23,36 +23,41 @@ namespace IShopping.Controllers
             }
         }
 
-        
+
         public static string GravarOrcamento(int mes, int ano, decimal valorMaximo, int utilizadorLogadoId)
         {
             using (IShoppingContext db = new IShoppingContext())
             {
-                
                 bool existeDuplicado = db.Orcamentos.Any(o => o.Mes == mes && o.Ano == ano);
-
                 if (existeDuplicado)
                 {
-                    return "Já existe um orçamento definido para este mês e ano! Se quiseres mudar o valor, usa o botão Atualizar.";
+                    return "Já existe um orçamento definido para este mês e ano!";
                 }
 
-                
                 Orcamento novo = new Orcamento
                 {
                     Mes = mes,
                     Ano = ano,
                     ValorMaximo = valorMaximo,
-                    CriadoPorId = utilizadorLogadoId 
+                    CriadoPorId = utilizadorLogadoId
                 };
 
                 db.Orcamentos.Add(novo);
-                db.SaveChanges();
 
-                return "Sucesso";
+                try
+                {
+                    db.SaveChanges();
+                    return "Sucesso";
+                }
+                catch (Exception ex)
+                {
+                    // Se o utilizador não existir, vai cair aqui em vez de crashar o programa!
+                    return "Erro ao guardar: Garante que o ID do utilizador logado existe na tabela de Utilizadores.";
+                }
             }
         }
 
-      
+
         public static string AtualizarOrcamento(int id, decimal novoValor, int utilizadorLogadoId)
         {
             using (IShoppingContext db = new IShoppingContext())

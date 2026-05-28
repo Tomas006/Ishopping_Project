@@ -32,44 +32,45 @@ namespace Ishopping_Project.Views
         {
             dataGridViewUtilizadores.SelectionChanged -= dataGridViewUtilizadores_SelectionChanged;
 
-           
+
             dataGridViewUtilizadores.AutoGenerateColumns = true;
             dataGridViewUtilizadores.DataSource = FormUtilizadorController.ObterTodosUtilizadores();
 
-            
+
             if (dataGridViewUtilizadores.Columns["Id"] != null)
             {
                 dataGridViewUtilizadores.Columns["Id"].HeaderText = "ID";
                 dataGridViewUtilizadores.Columns["Id"].Width = 60;
 
-           
-            if (dataGridViewUtilizadores.Columns["Username"] != null)
-            {
-                dataGridViewUtilizadores.Columns["Username"].HeaderText = "Nome de Utilizador";
-                dataGridViewUtilizadores.Columns["Username"].Width = 180;
+
+                if (dataGridViewUtilizadores.Columns["Username"] != null)
+                {
+                    dataGridViewUtilizadores.Columns["Username"].HeaderText = "Nome de Utilizador";
+                    dataGridViewUtilizadores.Columns["Username"].Width = 180;
+                }
+
+                if (dataGridViewUtilizadores.Columns["Password"] != null)
+                {
+                    dataGridViewUtilizadores.Columns["Password"].Visible = false;
+                }
+
+                if (dataGridViewUtilizadores.Columns["Compras"] != null)
+                {
+                    dataGridViewUtilizadores.Columns["Compras"].Visible = false;
+                }
+
+
+                dataGridViewUtilizadores.ClearSelection();
+                if (dataGridViewUtilizadores.CurrentRow != null)
+                {
+                    dataGridViewUtilizadores.CurrentRow.Selected = false;
+                }
+
+                dataGridViewUtilizadores.SelectionChanged += dataGridViewUtilizadores_SelectionChanged;
+
+
+                limparCampos();
             }
-
-            if (dataGridViewUtilizadores.Columns["Password"] != null)
-            {
-                dataGridViewUtilizadores.Columns["Password"].Visible = false;
-            }
-
-            if (dataGridViewUtilizadores.Columns["Compras"] != null)
-            {
-                dataGridViewUtilizadores.Columns["Compras"].Visible = false;
-            }
-
-            
-            dataGridViewUtilizadores.ClearSelection();
-            if (dataGridViewUtilizadores.CurrentRow != null)
-            {
-                dataGridViewUtilizadores.CurrentRow.Selected = false;
-            }
-
-            dataGridViewUtilizadores.SelectionChanged += dataGridViewUtilizadores_SelectionChanged;
-
-          
-            limparCampos();
         }
 
 

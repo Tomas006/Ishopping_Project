@@ -3,6 +3,7 @@ using Ishopping_Project.Controlleres;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Ishopping_Project.Views
 {
@@ -147,12 +148,17 @@ namespace Ishopping_Project.Views
                 return;
             }
 
+
             
-            if (!decimal.TryParse(textPreco.Text.Replace(',', '.'), out decimal precoConvertido))
+            string precoTexto = textPreco.Text.Trim().Replace(',', '.');
+
+            if (!decimal.TryParse(precoTexto, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal precoConvertido))
             {
                 MessageBox.Show("Por favor, introduz um preço válido (ex: 1.25)!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+       
 
             string msg; 
 
@@ -258,6 +264,7 @@ namespace Ishopping_Project.Views
             textNome.Clear();
             comboTipoArtigo.SelectedIndex = -1;
             idArtigoSelecionado = 0;
+            textPreco.Clear();
 
             btnGravar.Enabled = true;
             btnAtualizar.Enabled = false;

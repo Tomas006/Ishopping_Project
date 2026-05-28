@@ -56,6 +56,7 @@
             this.lblLimite = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxFuncionalidades.SuspendLayout();
             this.groupBoxDashBoard.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             // groupBoxFuncionalidades
             // 
+            this.groupBoxFuncionalidades.Controls.Add(this.button1);
             this.groupBoxFuncionalidades.Controls.Add(this.btnTerminarSessao);
             this.groupBoxFuncionalidades.Controls.Add(this.btnExportarCSV);
             this.groupBoxFuncionalidades.Controls.Add(this.btnEstatisticas);
@@ -85,14 +87,14 @@
             this.groupBoxFuncionalidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxFuncionalidades.Name = "groupBoxFuncionalidades";
             this.groupBoxFuncionalidades.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxFuncionalidades.Size = new System.Drawing.Size(200, 523);
+            this.groupBoxFuncionalidades.Size = new System.Drawing.Size(200, 543);
             this.groupBoxFuncionalidades.TabIndex = 0;
             this.groupBoxFuncionalidades.TabStop = false;
             // 
             // btnTerminarSessao
             // 
             this.btnTerminarSessao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTerminarSessao.Location = new System.Drawing.Point(19, 482);
+            this.btnTerminarSessao.Location = new System.Drawing.Point(19, 499);
             this.btnTerminarSessao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTerminarSessao.Name = "btnTerminarSessao";
             this.btnTerminarSessao.Size = new System.Drawing.Size(165, 30);
@@ -103,7 +105,7 @@
             // btnExportarCSV
             // 
             this.btnExportarCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportarCSV.Location = new System.Drawing.Point(19, 399);
+            this.btnExportarCSV.Location = new System.Drawing.Point(19, 435);
             this.btnExportarCSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportarCSV.Name = "btnExportarCSV";
             this.btnExportarCSV.Size = new System.Drawing.Size(165, 30);
@@ -114,7 +116,7 @@
             // btnEstatisticas
             // 
             this.btnEstatisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstatisticas.Location = new System.Drawing.Point(19, 364);
+            this.btnEstatisticas.Location = new System.Drawing.Point(19, 400);
             this.btnEstatisticas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEstatisticas.Name = "btnEstatisticas";
             this.btnEstatisticas.Size = new System.Drawing.Size(165, 30);
@@ -126,7 +128,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 330);
+            this.label3.Location = new System.Drawing.Point(51, 366);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 22);
             this.label3.TabIndex = 8;
@@ -135,30 +137,32 @@
             // btnModoCompra
             // 
             this.btnModoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModoCompra.Location = new System.Drawing.Point(19, 281);
+            this.btnModoCompra.Location = new System.Drawing.Point(19, 317);
             this.btnModoCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModoCompra.Name = "btnModoCompra";
             this.btnModoCompra.Size = new System.Drawing.Size(165, 30);
             this.btnModoCompra.TabIndex = 7;
             this.btnModoCompra.Text = "Modo Compra";
             this.btnModoCompra.UseVisualStyleBackColor = true;
+            this.btnModoCompra.Click += new System.EventHandler(this.btnModoCompra_Click);
             // 
             // btnPlanearLista
             // 
             this.btnPlanearLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlanearLista.Location = new System.Drawing.Point(19, 246);
+            this.btnPlanearLista.Location = new System.Drawing.Point(19, 282);
             this.btnPlanearLista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlanearLista.Name = "btnPlanearLista";
             this.btnPlanearLista.Size = new System.Drawing.Size(165, 30);
             this.btnPlanearLista.TabIndex = 6;
             this.btnPlanearLista.Text = "Planear Lista";
             this.btnPlanearLista.UseVisualStyleBackColor = true;
+            this.btnPlanearLista.Click += new System.EventHandler(this.btnPlanearLista_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 212);
+            this.label2.Location = new System.Drawing.Point(47, 248);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 22);
             this.label2.TabIndex = 5;
@@ -392,6 +396,17 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Dashboard";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(19, 202);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 30);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Ver Listas";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -453,5 +468,6 @@
         private System.Windows.Forms.Button btnModoCompra2;
         private System.Windows.Forms.DataGridView dtavgListaDeComprasAtivas;
         private System.Windows.Forms.DataGridView dtavgHistoricoUltimasComprasFechadas;
+        private System.Windows.Forms.Button button1;
     }
 }

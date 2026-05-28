@@ -37,6 +37,7 @@ namespace Ishopping_Project.Controlleres
                 }
 
                 Sessao.UtilizadorAtual = utilizador.Username;
+                Sessao.UtilizadorAtualObj = utilizador;
                 mensagem = "Login efetuado com sucesso";
 
                 return true;

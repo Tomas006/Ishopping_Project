@@ -12,20 +12,20 @@ namespace Ishopping_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            
-            //FormLogin login = new FormLogin();
 
-           
-            //if (login.ShowDialog() == DialogResult.OK)
-            //{
-             
+            FormLogin login = new FormLogin();
+
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+
                 Application.Run(new FormPrincipal());
-        //    }
-        //    else
-        //    {
-                
-        //        Application.Exit();
-        //    }
         }
+                else
+                {
+
+                    Application.Exit();
+                }
+}
     }
 }

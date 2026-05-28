@@ -1,4 +1,5 @@
-﻿using IShopping.Models;
+﻿using IShopping.Controllers;
+using IShopping.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,5 +79,43 @@ namespace Ishopping_Project.Views
 
             this.Show();
         }
+
+        private void btnPlanearLista_Click(object sender, EventArgs e)
+        {
+            FormPlanearLista formPlanearLista = new FormPlanearLista();
+
+            this.Hide();
+
+            formPlanearLista.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnModoCompra_Click(object sender, EventArgs e)
+        {
+            // 1. Vai buscar as compras em aberto (retorna List<Compra>)
+            var comprasEmAberto = FormPlanearListaController.ObterListasPlaneadasEmAberto();
+
+            if (comprasEmAberto == null || comprasEmAberto.Count == 0)
+            {
+                MessageBox.Show("Não há compras em aberto. Crie uma lista no Planeamento primeiro.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Abre o teu formulário visual passando a lista correta
+            using (var formSelecao = new FormEscolherListaExistente(comprasEmAberto))
+            {
+                if (formSelecao.ShowDialog() == DialogResult.OK)
+                {
+                    int idDaCompra = formSelecao.CompraIdSelecionada;
+
+                    this.Hide();
+                    FormModoCompra formModoCompra = new FormModoCompra(idDaCompra);
+                    formModoCompra.ShowDialog();
+                    this.Show();
+                }
+            }
+        }
     }
-    }
+}
