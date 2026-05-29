@@ -42,7 +42,7 @@ namespace Ishopping_Project.Views
             if (_compraAtiva.Estado != null && _compraAtiva.Estado.ToUpper() == "FECHADA")
             {
                 ConfigurarModoApenasLeitura();
-                MessageBox.Show("Esta lista encontra-se FECHADA. Os dados foram carregados apenas para leitura.", 
+                MessageBox.Show("Esta lista encontra-se FECHADA. Os dados foram carregados apenas para leitura.",
                     "Lista Fechada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -54,12 +54,11 @@ namespace Ishopping_Project.Views
                     _compraAtiva.AlteradoPorId = utilizadorId;
                     _compraAtiva.DataAlteracao = DateTime.Now;
 
-                   
                     FormModoCompraController.AtualizarEstadoCompra(_compraAtiva);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Aviso ao atualizar estado da compra para processamento: " + ex.Message, 
+                    MessageBox.Show("Aviso ao atualizar estado da compra para processamento: " + ex.Message,
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -73,7 +72,6 @@ namespace Ishopping_Project.Views
 
         private void FormModoCompra_Load(object sender, EventArgs e)
         {
-            
             comboBoxTipo.Focus();
         }
 
@@ -81,12 +79,11 @@ namespace Ishopping_Project.Views
         {
             dataGridViewLista.Columns.Clear();
 
-          
             dataGridViewLista.Columns.Add(new DataGridViewCheckBoxColumn
             {
                 Name = "AdquiridoCol",
                 DataPropertyName = "Adquirido",
-                HeaderText = "No Caminho?", 
+                HeaderText = "No Caminho?",
                 Width = 90,
                 ReadOnly = false
             });
@@ -99,10 +96,9 @@ namespace Ishopping_Project.Views
                 ReadOnly = true
             });
 
-            
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "Nome", 
+                DataPropertyName = "Nome",
                 HeaderText = "Artigo",
                 Width = 180,
                 ReadOnly = true
@@ -116,7 +112,6 @@ namespace Ishopping_Project.Views
                 ReadOnly = true
             });
 
-            
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "PrecoUnitarioCol",
@@ -125,7 +120,6 @@ namespace Ishopping_Project.Views
                 ReadOnly = true
             });
 
-          
             dataGridViewLista.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "TotalCol",
@@ -152,61 +146,12 @@ namespace Ishopping_Project.Views
                 {
                     int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
 
-                    
                     item.Adquirido = (bool)row.Cells["AdquiridoCol"].Value;
 
-                    
                     FormModoCompraController.MarcarItemComoAdquirido(item.Id, item.QuantidadeComprada, item.PrecoUnitario, utilizadorId);
                 }
 
                 RecalcularTotaisInterface();
-            }
-        }
-
-        private void RecalcularTotaisInterface()
-        {
-            if (_itensGrelha == null) return;
-
-           
-            int totalItens = _itensGrelha.Count;
-            int adquiridos = _itensGrelha.Count(i => i.Adquirido);
-
-            
-            progressBarItensPrevistos.Minimum = 0;
-            progressBarItensPrevistos.Maximum = totalItens > 0 ? totalItens : 1;
-
-            if (adquiridos > progressBarItensPrevistos.Maximum)
-                progressBarItensPrevistos.Maximum = adquiridos;
-
-            progressBarItensPrevistos.Value = adquiridos;
-
-            
-            labellProgressoItens.Text = $"{adquiridos} de {totalItens}";
-
-            
-            decimal totalCarrinho = _itensGrelha
-                .Where(i => i.Adquirido)
-                .Sum(i => i.QuantidadeComprada * i.PrecoUnitario);
-
-            decimal disponivel = _orcamentoMensal - totalCarrinho;
-
-            labelOrcamentoMensal.Text = $"{_orcamentoMensal:N2} €";
-            labelTotalCarrinho.Text = $"{totalCarrinho:N2} €";
-            labelOrcamentoDisponivel.Text = $"{disponivel:N2} €";
-
-            
-            if (labelEstadoAtual != null) labelEstadoAtual.Text = _compraAtiva.Estado;
-
-           
-            if (totalCarrinho > _orcamentoMensal)
-            {
-                labelOrcamentoDisponivel.ForeColor = System.Drawing.Color.Red;
-                if (panelAviso != null) panelAviso.Visible = true;
-            }
-            else
-            {
-                labelOrcamentoDisponivel.ForeColor = System.Drawing.SystemColors.ControlText;
-                if (panelAviso != null) panelAviso.Visible = false;
             }
         }
 
@@ -319,7 +264,6 @@ namespace Ishopping_Project.Views
             {
                 int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
 
-               
                 bool limpoComSucesso = FormModoCompraController.LimparCarrinhoEExtras(_compraAtiva.Id, utilizadorId);
 
                 if (limpoComSucesso)
@@ -342,10 +286,8 @@ namespace Ishopping_Project.Views
             {
                 int utilizadorId = Sessao.UtilizadorAtualObj?.Id ?? 1;
 
-               
                 dataGridViewLista.EndEdit();
 
-              
                 if (FormModoCompraController.FecharCompra(_compraAtiva.Id, utilizadorId))
                 {
                     MessageBox.Show("Compra FECHADA com sucesso! Os dados foram guardados e arquivados.", "Sucesso",
@@ -362,16 +304,59 @@ namespace Ishopping_Project.Views
 
         private void ConfigurarModoApenasLeitura()
         {
-           
             dataGridViewLista.ReadOnly = true;
             comboBoxTipo.Enabled = false;
             comboBoxArtigo.Enabled = false;
             numericUpDownQtd.Enabled = false;
             textBoxObservacoes.ReadOnly = true;
-            
+
             btnAdicionar.Enabled = false;
             btnLimparCarrinho.Enabled = false;
             btnFinalizarCompra.Enabled = false;
+        }
+
+        private void RecalcularTotaisInterface()
+        {
+            if (_itensGrelha == null) return;
+
+            int totalItens = _itensGrelha.Count;
+            int adquiridos = _itensGrelha.Count(i => i.Adquirido);
+
+            progressBarItensPrevistos.Minimum = 0;
+            progressBarItensPrevistos.Maximum = totalItens > 0 ? totalItens : 1;
+
+            if (adquiridos > progressBarItensPrevistos.Maximum)
+                progressBarItensPrevistos.Maximum = adquiridos;
+
+            progressBarItensPrevistos.Value = adquiridos;
+            labellProgressoItens.Text = $"{adquiridos} de {totalItens}";
+
+            decimal totalCarrinhoAtual = _itensGrelha
+                .Where(i => i.Adquirido)
+                .Sum(i => i.QuantidadeComprada * i.PrecoUnitario);
+
+            decimal totalGastoMesAnteriormente = FormModoCompraController.ObterTotalGastoNoMesAtual();
+
+            decimal totalGastoAcumulado = totalGastoMesAnteriormente + totalCarrinhoAtual;
+
+            decimal disponivel = _orcamentoMensal - totalGastoAcumulado;
+
+            labelOrcamentoMensal.Text = $"{_orcamentoMensal:N2} €";
+            labelTotalCarrinho.Text = $"{totalCarrinhoAtual:N2} €"; 
+            labelOrcamentoDisponivel.Text = $"{disponivel:N2} €";   
+
+            if (labelEstadoAtual != null) labelEstadoAtual.Text = _compraAtiva.Estado;
+
+            if (totalGastoAcumulado > _orcamentoMensal)
+            {
+                labelOrcamentoDisponivel.ForeColor = System.Drawing.Color.Red;
+                if (panelAviso != null) panelAviso.Visible = true;
+            }
+            else
+            {
+                labelOrcamentoDisponivel.ForeColor = System.Drawing.SystemColors.ControlText;
+                if (panelAviso != null) panelAviso.Visible = false;
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

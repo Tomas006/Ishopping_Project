@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlleres\FormArtigoController.cs" />
+    <Compile Include="Controlleres\FormHistoricoListasController.cs" />
     <Compile Include="Controlleres\FormModoCompraController.cs" />
     <Compile Include="Controlleres\FormOrcamentosController.cs" />
     <Compile Include="Controlleres\FormPlanearListaController.cs" />
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="Views\FormEscolherListaExistente.Designer.cs">
       <DependentUpon>FormEscolherListaExistente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormHistoricoListas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormHistoricoListas.Designer.cs">
+      <DependentUpon>FormHistoricoListas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
@@ -174,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEscolherListaExistente.resx">
       <DependentUpon>FormEscolherListaExistente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormHistoricoListas.resx">
+      <DependentUpon>FormHistoricoListas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

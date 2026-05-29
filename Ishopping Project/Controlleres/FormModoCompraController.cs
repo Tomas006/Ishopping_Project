@@ -145,7 +145,24 @@ namespace IShopping.Controllers
                 }
             }
         }
+        public static decimal ObterTotalGastoNoMesAtual()
+        {
+            using (var db = new IShoppingContext())
+            {
+                int mesAtual = DateTime.Now.Month;
+                int anoAtual = DateTime.Now.Year;
 
+               
+                return db.ItensCompra
+                    .Include("Compra")
+                    .Where(i => i.Compra.EstaFechada
+                             && i.Compra.DataCriacao.Month == mesAtual
+                             && i.Compra.DataCriacao.Year == anoAtual
+                             && i.Adquirido)
+                    .AsEnumerable() 
+                    .Sum(i => i.QuantidadeComprada * i.PrecoUnitario);
+            }
+        }
         public static bool FecharCompra(int compraId, int utilizadorId)
         {
             using (var db = new IShoppingContext())

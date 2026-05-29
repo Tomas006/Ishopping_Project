@@ -12,7 +12,6 @@ namespace Ishopping_Project.Views
     public partial class FormPlanearLista : Form
     {
         private BindingList<ItemPrevisto> _carrinhoEmMemoria = new BindingList<ItemPrevisto>();
-
         private Dictionary<int, string> _cacheTiposArtigos = new Dictionary<int, string>();
 
         private int idUtilizadorLogado = 1;
@@ -68,6 +67,8 @@ namespace Ishopping_Project.Views
 
                 if (compra != null)
                 {
+                    txtNomeLista.Text = compra.Nome;
+
                     textBoxDataCriacao.Text = compra.DataCriacao.ToString("dd/MM/yyyy");
                     textBoxDataCriacao.ReadOnly = true;
 
@@ -89,7 +90,7 @@ namespace Ishopping_Project.Views
                         var itemPrevisto = new ItemPrevisto
                         {
                             ArtigoId = item.ArtigoId,
-                            QuantidadePrevista = item.QuantidadeComprada, 
+                            QuantidadePrevista = item.QuantidadeComprada,
                             Artigo = item.Artigo
                         };
                         _carrinhoEmMemoria.Add(itemPrevisto);
@@ -121,6 +122,7 @@ namespace Ishopping_Project.Views
         {
             bool ativaControlos = !apenasLeitura;
 
+            txtNomeLista.ReadOnly = apenasLeitura; 
             comboBoxArtigos.Enabled = ativaControlos;
             numericUpDownQuantidadePlaneada.Enabled = ativaControlos;
             btnAdicionarArtigo.Enabled = ativaControlos;
@@ -276,39 +278,54 @@ namespace Ishopping_Project.Views
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (_carrinhoEmMemoria.Count == 0)
+            if (string.IsNullOrWhiteSpace(txtNomeLista.Text))
             {
-                MessageBox.Show("Adiciona pelo menos um artigo antes de guardar a lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, introduza um nome para a lista antes de guardar.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNomeLista.Focus();
                 return;
             }
 
-            string nomeLista = $"Planeamento - {DateTime.Now:dd/MM/yyyy}";
-            var listaItens = _carrinhoEmMemoria.ToList();
+            if (_carrinhoEmMemoria == null || _carrinhoEmMemoria.Count == 0)
+            {
+                MessageBox.Show("Adicione pelo menos um artigo à lista antes de guardar.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomeDaLista = txtNomeLista.Text.Trim();
+            List<ItemPrevisto> itensParaGravar = _carrinhoEmMemoria.ToList();
             string resultado = "";
 
             if (_compraIdAtual > 0)
             {
-                resultado = FormPlanearListaController.AtualizarPlaneamento(_compraIdAtual, listaItens, idUtilizadorLogado);
+                resultado = FormPlanearListaController.AtualizarPlaneamento(_compraIdAtual, nomeDaLista, itensParaGravar, idUtilizadorLogado);
             }
             else
             {
-                resultado = FormPlanearListaController.GravarPlaneamento(nomeLista, listaItens, idUtilizadorLogado);
+                resultado = FormPlanearListaController.GravarPlaneamento(nomeDaLista, itensParaGravar, idUtilizadorLogado);
             }
 
             if (resultado == "Sucesso")
             {
-                MessageBox.Show("Lista de compras guardada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnLimpar_Click(null, null);
-                this.Close();
+                MessageBox.Show("Planeamento de lista guardado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (_compraIdAtual == 0)
+                {
+                    txtNomeLista.Clear();
+                    _carrinhoEmMemoria.Clear();
+                    AtualizarOrcamentoETotais();
+                }
             }
             else
             {
-                MessageBox.Show(resultado, "Erro ao guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao gravar a lista: {resultado}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            txtNomeLista.Clear(); 
             _carrinhoEmMemoria.Clear();
             _compraIdAtual = 0;
             comboBoxArtigos.SelectedIndex = -1;
@@ -357,11 +374,6 @@ namespace Ishopping_Project.Views
             {
                 MessageBox.Show("Erro ao selecionar a lista: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void FormPlanearLista_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

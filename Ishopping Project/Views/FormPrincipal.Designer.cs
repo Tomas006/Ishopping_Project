@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxFuncionalidades = new System.Windows.Forms.GroupBox();
+            this.btnVerListas = new System.Windows.Forms.Button();
             this.btnTerminarSessao = new System.Windows.Forms.Button();
             this.btnExportarCSV = new System.Windows.Forms.Button();
             this.btnEstatisticas = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.lblLimite = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnVerListas = new System.Windows.Forms.Button();
             this.groupBoxFuncionalidades.SuspendLayout();
             this.groupBoxDashBoard.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -90,6 +90,18 @@
             this.groupBoxFuncionalidades.Size = new System.Drawing.Size(200, 543);
             this.groupBoxFuncionalidades.TabIndex = 0;
             this.groupBoxFuncionalidades.TabStop = false;
+            // 
+            // btnVerListas
+            // 
+            this.btnVerListas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerListas.Location = new System.Drawing.Point(19, 202);
+            this.btnVerListas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVerListas.Name = "btnVerListas";
+            this.btnVerListas.Size = new System.Drawing.Size(165, 30);
+            this.btnVerListas.TabIndex = 12;
+            this.btnVerListas.Text = "Ver Listas";
+            this.btnVerListas.UseVisualStyleBackColor = true;
+            this.btnVerListas.Click += new System.EventHandler(this.btnVerListas_Click);
             // 
             // btnTerminarSessao
             // 
@@ -235,6 +247,7 @@
             this.lblUserAutenticado.Size = new System.Drawing.Size(156, 32);
             this.lblUserAutenticado.TabIndex = 1;
             this.lblUserAutenticado.Text = "Bem vindo,";
+         
             // 
             // groupBoxDashBoard
             // 
@@ -395,17 +408,6 @@
             this.label4.Size = new System.Drawing.Size(140, 29);
             this.label4.TabIndex = 0;
             this.label4.Text = "Dashboard";
-            // 
-            // btnVerListas
-            // 
-            this.btnVerListas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerListas.Location = new System.Drawing.Point(19, 202);
-            this.btnVerListas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVerListas.Name = "btnVerListas";
-            this.btnVerListas.Size = new System.Drawing.Size(165, 30);
-            this.btnVerListas.TabIndex = 12;
-            this.btnVerListas.Text = "Ver Listas";
-            this.btnVerListas.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 

@@ -115,5 +115,18 @@ namespace Ishopping_Project.Views
                 }
             }
         }
+
+        private void btnVerListas_Click(object sender, EventArgs e)
+        {
+            FormHistoricoListas formHistotiricoListas = new FormHistoricoListas();
+
+            this.Hide();
+
+            formHistotiricoListas.ShowDialog();
+
+            this.Show();
+        }
+
+       
     }
 }

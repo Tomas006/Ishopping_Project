@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNomeLista = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.buttonListaExistente = new System.Windows.Forms.Button();
             this.labelOrcamentoMesAtual = new System.Windows.Forms.Label();
             this.labelTotalPlaneado = new System.Windows.Forms.Label();
@@ -61,6 +63,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNomeLista);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.buttonListaExistente);
             this.groupBox1.Controls.Add(this.labelOrcamentoMesAtual);
             this.groupBox1.Controls.Add(this.labelTotalPlaneado);
@@ -72,15 +76,33 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(26, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1046, 114);
+            this.groupBox1.Size = new System.Drawing.Size(1046, 162);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info da Lista Ativa";
             // 
+            // txtNomeLista
+            // 
+            this.txtNomeLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeLista.Location = new System.Drawing.Point(154, 112);
+            this.txtNomeLista.Name = "txtNomeLista";
+            this.txtNomeLista.Size = new System.Drawing.Size(150, 27);
+            this.txtNomeLista.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Nome da Lista:";
+            // 
             // buttonListaExistente
             // 
             this.buttonListaExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonListaExistente.Location = new System.Drawing.Point(372, 38);
+            this.buttonListaExistente.Location = new System.Drawing.Point(384, 31);
             this.buttonListaExistente.Name = "buttonListaExistente";
             this.buttonListaExistente.Size = new System.Drawing.Size(208, 41);
             this.buttonListaExistente.TabIndex = 13;
@@ -173,9 +195,9 @@
             this.groupBox2.Controls.Add(this.comboBoxArtigos);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(26, 171);
+            this.groupBox2.Location = new System.Drawing.Point(26, 212);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 237);
+            this.groupBox2.Size = new System.Drawing.Size(383, 238);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adicionar Artigo à Lista";
@@ -232,7 +254,7 @@
             // 
             this.groupBox3.Controls.Add(this.dataGridViewLinhas);
             this.groupBox3.Controls.Add(this.btnRemoverArtigo);
-            this.groupBox3.Location = new System.Drawing.Point(445, 171);
+            this.groupBox3.Location = new System.Drawing.Point(445, 212);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(627, 294);
             this.groupBox3.TabIndex = 10;
@@ -267,7 +289,7 @@
             this.groupBox4.Controls.Add(this.btnVoltar);
             this.groupBox4.Controls.Add(this.btnLimpar);
             this.groupBox4.Controls.Add(this.btnGuardar);
-            this.groupBox4.Location = new System.Drawing.Point(26, 471);
+            this.groupBox4.Location = new System.Drawing.Point(26, 512);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1046, 97);
             this.groupBox4.TabIndex = 4;
@@ -311,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 600);
+            this.ClientSize = new System.Drawing.Size(1112, 638);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -319,7 +341,7 @@
             this.Name = "FormPlanearLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPlanearLista";
-            this.Load += new System.EventHandler(this.FormPlanearLista_Load_1);
+            
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -357,5 +379,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelOrcamentoMesAtual;
         private System.Windows.Forms.Button buttonListaExistente;
+        private System.Windows.Forms.TextBox txtNomeLista;
+        private System.Windows.Forms.Label label5;
     }
 }
