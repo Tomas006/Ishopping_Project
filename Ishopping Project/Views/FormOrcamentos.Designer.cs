@@ -234,6 +234,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormOrcamentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ishopping - Orcamentos";
             this.Load += new System.EventHandler(this.FormOrcamentos_Load);
             this.groupBox1.ResumeLayout(false);

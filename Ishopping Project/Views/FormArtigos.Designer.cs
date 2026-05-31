@@ -52,7 +52,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(423, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 31);
+            this.label1.Size = new System.Drawing.Size(255, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gestao Artigos";
             // 
@@ -62,7 +62,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(25, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 17);
+            this.label2.Size = new System.Drawing.Size(130, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nome do Artigo:";
             // 
@@ -72,7 +72,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(86, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Preço:";
             // 
@@ -82,7 +82,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(34, 88);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 17);
+            this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tipo de Artigo:";
             // 
@@ -91,7 +91,7 @@
             this.textNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNome.Location = new System.Drawing.Point(163, 33);
             this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(254, 23);
+            this.textNome.Size = new System.Drawing.Size(254, 27);
             this.textNome.TabIndex = 4;
             // 
             // textPreco
@@ -99,7 +99,7 @@
             this.textPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPreco.Location = new System.Drawing.Point(163, 140);
             this.textPreco.Name = "textPreco";
-            this.textPreco.Size = new System.Drawing.Size(254, 23);
+            this.textPreco.Size = new System.Drawing.Size(254, 27);
             this.textPreco.TabIndex = 5;
             // 
             // comboTipoArtigo
@@ -108,7 +108,7 @@
             this.comboTipoArtigo.FormattingEnabled = true;
             this.comboTipoArtigo.Location = new System.Drawing.Point(163, 88);
             this.comboTipoArtigo.Name = "comboTipoArtigo";
-            this.comboTipoArtigo.Size = new System.Drawing.Size(254, 25);
+            this.comboTipoArtigo.Size = new System.Drawing.Size(254, 28);
             this.comboTipoArtigo.TabIndex = 6;
             // 
             // btnGravar
@@ -208,7 +208,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormArtigos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormArtigos";
+            this.Text = "Artigos";
             this.Load += new System.EventHandler(this.FormArtigos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArtigos)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlleres\FormArtigoController.cs" />
+    <Compile Include="Controlleres\FormEstatisticasController.cs" />
     <Compile Include="Controlleres\FormHistoricoListasController.cs" />
     <Compile Include="Controlleres\FormModoCompraController.cs" />
     <Compile Include="Controlleres\FormOrcamentosController.cs" />
@@ -83,6 +84,12 @@
       <DependentUpon>202605282115051_AdicionarEstadoCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Views\FormEstatisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormEstatisticas.Designer.cs">
+      <DependentUpon>FormEstatisticas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormArtigos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEscolherListaExistente.resx">
       <DependentUpon>FormEscolherListaExistente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormEstatisticas.resx">
+      <DependentUpon>FormEstatisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormHistoricoListas.resx">
       <DependentUpon>FormHistoricoListas.cs</DependentUpon>

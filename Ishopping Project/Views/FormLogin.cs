@@ -28,13 +28,16 @@ namespace Ishopping_Project
             string mensagem;
             bool ok = FormLoginController.Autenticar(textUsernameEntrar.Text, textPasswordEntrar.Text, out mensagem);
 
-            MessageBox.Show(mensagem, "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             if (ok)
             {
+                MessageBox.Show(mensagem, "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 
                 this.DialogResult = DialogResult.OK;
-                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(mensagem, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -64,6 +67,11 @@ namespace Ishopping_Project
                 MessageBox.Show(mensagem, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void btnCancelarRegistar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

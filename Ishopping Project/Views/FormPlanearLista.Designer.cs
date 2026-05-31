@@ -340,8 +340,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormPlanearLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormPlanearLista";
-            
+            this.Text = "Planear Lista";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

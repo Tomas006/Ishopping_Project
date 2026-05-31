@@ -84,7 +84,7 @@
             this.Controls.Add(this.comboBoxListas);
             this.Name = "FormEscolherListaExistente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormEscolherListaExistente";
+            this.Text = "Escolher Lista Existente";
             this.ResumeLayout(false);
             this.PerformLayout();
 

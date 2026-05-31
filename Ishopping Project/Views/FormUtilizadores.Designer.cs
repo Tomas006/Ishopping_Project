@@ -236,7 +236,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUtilizadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUtilizadores";
+            this.Text = "Utilizadores";
             this.Load += new System.EventHandler(this.FormUtilizadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilizadores)).EndInit();
             this.groupBox1.ResumeLayout(false);
