@@ -191,5 +191,25 @@ namespace IShopping.Controllers
                 return ex.InnerException?.InnerException?.Message ?? ex.InnerException?.Message ?? ex.Message;
             }
         }
+
+        public static List<TipoArtigo> ObterTiposArtigo()
+        {
+            using (var db = new IShoppingContext())
+            {
+                var tiposArtigos = db.TiposArtigos.OrderBy(t=> t.Nome).ToList();
+
+                return tiposArtigos;
+            }
+        }
+        public static List<Artigo> ObterArtigosPorTipo(int tipoId)
+        {
+            using (var db = new IShoppingContext())
+            {
+                return db.Artigos
+                    .Where(a => a.TipoArtigoId == tipoId)
+                    .OrderBy(a => a.Nome)
+                    .ToList();
+            }
+        }
     }
 }

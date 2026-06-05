@@ -14,7 +14,7 @@ namespace Ishopping_Project.Views
         private BindingList<ItemPrevisto> _carrinhoEmMemoria = new BindingList<ItemPrevisto>();
         private Dictionary<int, string> _cacheTiposArtigos = new Dictionary<int, string>();
 
-        private int idUtilizadorLogado = 1;
+        private int idUtilizadorLogado => Sessao.UtilizadorAtualObj?.Id ?? 1;
         private int _compraIdAtual = 0;
 
         public FormPlanearLista()
@@ -50,13 +50,14 @@ namespace Ishopping_Project.Views
             comboBoxEstado.Items.AddRange(new string[] { "PLANEADA", "EM COMPRA", "FECHADA" });
             comboBoxEstado.SelectedIndex = 0;
 
-            CarregarComboArtigos();
             ConfigurarGrelha();
+            PreencherComboTipos();
         }
+
 
         private void FormPlanearLista_Load(object sender, EventArgs e)
         {
-            comboBoxArtigos.Focus();
+            comboBoxArtigo.Focus();
         }
 
         private void CarregarDadosDaListaExistente(int id)
@@ -123,7 +124,7 @@ namespace Ishopping_Project.Views
             bool ativaControlos = !apenasLeitura;
 
             txtNomeLista.ReadOnly = apenasLeitura; 
-            comboBoxArtigos.Enabled = ativaControlos;
+            comboBoxArtigo.Enabled = ativaControlos;
             numericUpDownQuantidadePlaneada.Enabled = ativaControlos;
             btnAdicionarArtigo.Enabled = ativaControlos;
             btnRemoverArtigo.Enabled = ativaControlos;
@@ -149,13 +150,13 @@ namespace Ishopping_Project.Views
                     }
                 }
 
-                comboBoxArtigos.DataSource = artigos;
-                comboBoxArtigos.ValueMember = "Id";
-                comboBoxArtigos.DisplayMember = "Nome";
-                comboBoxArtigos.SelectedIndex = -1;
+                comboBoxArtigo.DataSource = artigos;
+                comboBoxArtigo.ValueMember = "Id";
+                comboBoxArtigo.DisplayMember = "Nome";
+                comboBoxArtigo.SelectedIndex = -1;
 
-                comboBoxArtigos.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                comboBoxArtigos.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBoxArtigo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBoxArtigo.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {
@@ -220,7 +221,7 @@ namespace Ishopping_Project.Views
 
         private void btnAdicionarArtigo_Click(object sender, EventArgs e)
         {
-            if (comboBoxArtigos.SelectedIndex == -1)
+            if (comboBoxArtigo.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleciona um artigo válido da lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -232,7 +233,7 @@ namespace Ishopping_Project.Views
                 return;
             }
 
-            Artigo artigo = (Artigo)comboBoxArtigos.SelectedItem;
+            Artigo artigo = (Artigo)comboBoxArtigo.SelectedItem;
             int qtd = Convert.ToInt32(numericUpDownQuantidadePlaneada.Value);
 
             var existente = _carrinhoEmMemoria.FirstOrDefault(i => i.ArtigoId == artigo.Id);
@@ -252,11 +253,11 @@ namespace Ishopping_Project.Views
                 });
             }
 
-            comboBoxArtigos.SelectedIndex = -1;
+            comboBoxArtigo.SelectedIndex = -1;
             numericUpDownQuantidadePlaneada.Value = 1;
 
             AtualizarOrcamentoETotais();
-            comboBoxArtigos.Focus();
+            comboBoxArtigo.Focus();
         }
 
         private void btnRemoverArtigo_Click(object sender, EventArgs e)
@@ -328,7 +329,7 @@ namespace Ishopping_Project.Views
             txtNomeLista.Clear(); 
             _carrinhoEmMemoria.Clear();
             _compraIdAtual = 0;
-            comboBoxArtigos.SelectedIndex = -1;
+            comboBoxArtigo.SelectedIndex = -1;
             numericUpDownQuantidadePlaneada.Value = 1;
 
             comboBoxEstado.SelectedIndex = 0;
@@ -375,5 +376,39 @@ namespace Ishopping_Project.Views
                 MessageBox.Show("Erro ao selecionar a lista: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void PreencherComboTipos()
+        {
+            
+            comboBoxTipo.SelectedIndexChanged -= comboBoxTipo_SelectedIndexChanged;
+
+            comboBoxTipo.DataSource = FormPlanearListaController.ObterTiposArtigo();
+            comboBoxTipo.DisplayMember = "Nome";
+            comboBoxTipo.ValueMember = "Id";
+            comboBoxTipo.SelectedIndex = -1;
+
+            // volta a ligar o evento
+            comboBoxTipo.SelectedIndexChanged += comboBoxTipo_SelectedIndexChanged;
+        }
+
+        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTipo.SelectedValue == null || !(comboBoxTipo.SelectedValue is int))
+            {
+                comboBoxArtigo.DataSource = null;
+                return;
+            }
+
+            int tipoId = (int)comboBoxTipo.SelectedValue;
+
+            var artigos = FormPlanearListaController.ObterArtigosPorTipo(tipoId);
+
+            comboBoxArtigo.DataSource = null; 
+            comboBoxArtigo.DataSource = artigos;
+            comboBoxArtigo.DisplayMember = "Nome";
+            comboBoxArtigo.ValueMember = "Id";
+            comboBoxArtigo.SelectedIndex = -1;
+        }
+
+
     }
 }

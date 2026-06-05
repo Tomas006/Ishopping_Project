@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxControlo = new System.Windows.Forms.CheckBox();
             this.numericUpDownQuantidade = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBoxControlo);
             this.groupBox1.Controls.Add(this.numericUpDownQuantidade);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -66,21 +64,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Orçamento";
             // 
-            // checkBoxControlo
-            // 
-            this.checkBoxControlo.AutoSize = true;
-            this.checkBoxControlo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxControlo.Location = new System.Drawing.Point(223, 174);
-            this.checkBoxControlo.Name = "checkBoxControlo";
-            this.checkBoxControlo.Size = new System.Drawing.Size(136, 24);
-            this.checkBoxControlo.TabIndex = 6;
-            this.checkBoxControlo.Text = "Controlo Ativo";
-            this.checkBoxControlo.UseVisualStyleBackColor = true;
-            // 
             // numericUpDownQuantidade
             // 
+            this.numericUpDownQuantidade.DecimalPlaces = 2;
             this.numericUpDownQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownQuantidade.Location = new System.Drawing.Point(20, 174);
+            this.numericUpDownQuantidade.Location = new System.Drawing.Point(20, 146);
+            this.numericUpDownQuantidade.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
             this.numericUpDownQuantidade.Name = "numericUpDownQuantidade";
             this.numericUpDownQuantidade.Size = new System.Drawing.Size(157, 27);
             this.numericUpDownQuantidade.TabIndex = 5;
@@ -256,7 +249,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxAno;
         private System.Windows.Forms.ComboBox comboBoxMes;
-        private System.Windows.Forms.CheckBox checkBoxControlo;
         private System.Windows.Forms.NumericUpDown numericUpDownQuantidade;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridViewOrcamentos;

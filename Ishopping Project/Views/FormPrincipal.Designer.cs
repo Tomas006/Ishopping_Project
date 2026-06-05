@@ -51,12 +51,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtavgListaDeComprasAtivas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblGasto = new System.Windows.Forms.Label();
-            this.lblLimite = new System.Windows.Forms.Label();
+            this.labelGastoOrcamento = new System.Windows.Forms.Label();
+            this.labelLimiteOrcamento = new System.Windows.Forms.Label();
             this.progressBarOrcamentoAtual = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
-            this.labelLimiteOrcamento = new System.Windows.Forms.Label();
-            this.labelGastoOrcamento = new System.Windows.Forms.Label();
             this.groupBoxFuncionalidades.SuspendLayout();
             this.groupBoxDashBoard.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -268,7 +266,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dtavgHistoricoUltimasComprasFechadas);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(533, 302);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
@@ -281,12 +279,12 @@
             // dtavgHistoricoUltimasComprasFechadas
             // 
             this.dtavgHistoricoUltimasComprasFechadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtavgHistoricoUltimasComprasFechadas.Location = new System.Drawing.Point(25, 46);
+            this.dtavgHistoricoUltimasComprasFechadas.Location = new System.Drawing.Point(25, 33);
             this.dtavgHistoricoUltimasComprasFechadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtavgHistoricoUltimasComprasFechadas.Name = "dtavgHistoricoUltimasComprasFechadas";
             this.dtavgHistoricoUltimasComprasFechadas.RowHeadersWidth = 51;
             this.dtavgHistoricoUltimasComprasFechadas.RowTemplate.Height = 24;
-            this.dtavgHistoricoUltimasComprasFechadas.Size = new System.Drawing.Size(479, 153);
+            this.dtavgHistoricoUltimasComprasFechadas.Size = new System.Drawing.Size(479, 166);
             this.dtavgHistoricoUltimasComprasFechadas.TabIndex = 2;
             // 
             // groupBox3
@@ -314,7 +312,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtavgListaDeComprasAtivas);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(21, 302);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
@@ -339,8 +337,6 @@
             // 
             this.groupBox1.Controls.Add(this.labelGastoOrcamento);
             this.groupBox1.Controls.Add(this.labelLimiteOrcamento);
-            this.groupBox1.Controls.Add(this.lblGasto);
-            this.groupBox1.Controls.Add(this.lblLimite);
             this.groupBox1.Controls.Add(this.progressBarOrcamentoAtual);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 62);
@@ -352,25 +348,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Orçamento Atual: {Mês/Ano Atual}";
             // 
-            // lblGasto
+            // labelGastoOrcamento
             // 
-            this.lblGasto.AutoSize = true;
-            this.lblGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGasto.Location = new System.Drawing.Point(232, 150);
-            this.lblGasto.Name = "lblGasto";
-            this.lblGasto.Size = new System.Drawing.Size(59, 20);
-            this.lblGasto.TabIndex = 3;
-            this.lblGasto.Text = "Gasto:";
+            this.labelGastoOrcamento.AutoSize = true;
+            this.labelGastoOrcamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGastoOrcamento.Location = new System.Drawing.Point(255, 150);
+            this.labelGastoOrcamento.Name = "labelGastoOrcamento";
+            this.labelGastoOrcamento.Size = new System.Drawing.Size(173, 20);
+            this.labelGastoOrcamento.TabIndex = 5;
+            this.labelGastoOrcamento.Text = "labelLimiteOrcamento";
             // 
-            // lblLimite
+            // labelLimiteOrcamento
             // 
-            this.lblLimite.AutoSize = true;
-            this.lblLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLimite.Location = new System.Drawing.Point(21, 150);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(60, 20);
-            this.lblLimite.TabIndex = 2;
-            this.lblLimite.Text = "Limite:";
+            this.labelLimiteOrcamento.AutoSize = true;
+            this.labelLimiteOrcamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLimiteOrcamento.Location = new System.Drawing.Point(23, 150);
+            this.labelLimiteOrcamento.Name = "labelLimiteOrcamento";
+            this.labelLimiteOrcamento.Size = new System.Drawing.Size(173, 20);
+            this.labelLimiteOrcamento.TabIndex = 4;
+            this.labelLimiteOrcamento.Text = "labelLimiteOrcamento";
             // 
             // progressBarOrcamentoAtual
             // 
@@ -390,26 +386,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Dashboard";
             // 
-            // labelLimiteOrcamento
-            // 
-            this.labelLimiteOrcamento.AutoSize = true;
-            this.labelLimiteOrcamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLimiteOrcamento.Location = new System.Drawing.Point(87, 150);
-            this.labelLimiteOrcamento.Name = "labelLimiteOrcamento";
-            this.labelLimiteOrcamento.Size = new System.Drawing.Size(173, 20);
-            this.labelLimiteOrcamento.TabIndex = 4;
-            this.labelLimiteOrcamento.Text = "labelLimiteOrcamento";
-            // 
-            // labelGastoOrcamento
-            // 
-            this.labelGastoOrcamento.AutoSize = true;
-            this.labelGastoOrcamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGastoOrcamento.Location = new System.Drawing.Point(297, 150);
-            this.labelGastoOrcamento.Name = "labelGastoOrcamento";
-            this.labelGastoOrcamento.Size = new System.Drawing.Size(173, 20);
-            this.labelGastoOrcamento.TabIndex = 5;
-            this.labelGastoOrcamento.Text = "labelLimiteOrcamento";
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -421,7 +397,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "IShoping";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.groupBoxFuncionalidades.ResumeLayout(false);
             this.groupBoxFuncionalidades.PerformLayout();
@@ -463,8 +439,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblAlerta;
-        private System.Windows.Forms.Label lblGasto;
-        private System.Windows.Forms.Label lblLimite;
         private System.Windows.Forms.ProgressBar progressBarOrcamentoAtual;
         private System.Windows.Forms.DataGridView dtavgListaDeComprasAtivas;
         private System.Windows.Forms.DataGridView dtavgHistoricoUltimasComprasFechadas;

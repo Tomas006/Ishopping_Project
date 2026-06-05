@@ -55,7 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelEstadoAtual = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -220,7 +219,7 @@
             this.groupBox3.Size = new System.Drawing.Size(316, 608);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Resumo E Controlo FInanceiro";
+            this.groupBox3.Text = "Resumo E Controlo Financeiro";
             // 
             // labellProgressoItens
             // 
@@ -370,21 +369,11 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Orçamento Mensal:";
             // 
-            // labelEstadoAtual
-            // 
-            this.labelEstadoAtual.AutoSize = true;
-            this.labelEstadoAtual.Location = new System.Drawing.Point(687, 9);
-            this.labelEstadoAtual.Name = "labelEstadoAtual";
-            this.labelEstadoAtual.Size = new System.Drawing.Size(44, 16);
-            this.labelEstadoAtual.TabIndex = 1;
-            this.labelEstadoAtual.Text = "label8";
-            // 
             // FormModoCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 671);
-            this.Controls.Add(this.labelEstadoAtual);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -403,7 +392,6 @@
             this.panelAviso.ResumeLayout(false);
             this.panelAviso.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -436,6 +424,5 @@
         private System.Windows.Forms.Button btnLimparCarrinho;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label labellProgressoItens;
-        private System.Windows.Forms.Label labelEstadoAtual;
     }
 }

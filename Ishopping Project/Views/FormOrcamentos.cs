@@ -16,7 +16,7 @@ namespace Ishopping_Project.Views
     public partial class FormOrcamentos : Form
     {
         private int idOrcamentoSelecionado = 0;
-        private int idUtilizadorLogado = 1; 
+        private int idUtilizadorLogado => Sessao.UtilizadorAtualObj?.Id ?? 1; 
 
         public FormOrcamentos()
         {

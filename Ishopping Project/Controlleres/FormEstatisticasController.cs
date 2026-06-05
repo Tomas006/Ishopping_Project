@@ -81,5 +81,111 @@ namespace IShopping.Controllers
                 .ToList();
             }
         }
+        public static object ObterOrcamentoPorMes()
+        {
+            using (var db = new IShoppingContext())
+            {
+                var orcamentos = db.Set<Orcamento>().ToList();
+                var compras = db.Set<Compra>()
+                    .Include(c => c.Itens)
+                    .Where(c => c.Estado == "FECHADA")
+                    .ToList();
+
+                return orcamentos.Select(o =>
+                {
+                    decimal totalGasto = compras
+                        .Where(c => c.DataFecho.HasValue
+                            && c.DataFecho.Value.Month == o.Mes
+                            && c.DataFecho.Value.Year == o.Ano)
+                        .SelectMany(c => c.Itens.Where(i => i.Adquirido))
+                        .Sum(i => (decimal?)(i.QuantidadeComprada * i.PrecoUnitario)) ?? 0m;
+
+                    return new
+                    {
+                        Mes = o.Mes,
+                        Ano = o.Ano,
+                        Orcamento = o.ValorMaximo.ToString("C2"),
+                        Total_Gasto = totalGasto.ToString("C2"),
+                        Diferenca = (o.ValorMaximo - totalGasto).ToString("C2")
+                    };
+                })
+                .OrderBy(x => x.Ano).ThenBy(x => x.Mes)
+                .ToList();
+            }
+        }
+
+        public static object ObterPercentivosPorCompra()
+        {
+            using (var db = new IShoppingContext())
+            {
+                var compras = db.Set<Compra>()
+                    .Include(c => c.Itens)
+                    .Where(c => c.Estado == "FECHADA")
+                    .ToList();
+
+                return compras.Select(c =>
+                {
+                    int total = c.Itens.Count(i => i.Adquirido);
+                    double percPrev = total > 0
+                        ? Math.Round((double)c.Itens.Count(i => i.Adquirido && i.PreviaComprar) / total * 100, 1)
+                        : 0;
+                    double percNaoPrev = total > 0 ? Math.Round(100 - percPrev, 1) : 0;
+
+                    return new
+                    {
+                        Compra = string.IsNullOrEmpty(c.Nome) ? $"Compra #{c.Id}" : c.Nome,
+                        Data = c.DataFecho?.ToString("dd/MM/yyyy") ?? "-",
+                        Previstos = $"{percPrev}%",
+                        Nao_Previstos = $"{percNaoPrev}%"
+                    };
+                })
+                .OrderByDescending(x => x.Compra)
+                .ToList();
+            }
+        }
+
+        public static decimal SugerirOrcamento()
+        {
+            using (var db = new IShoppingContext())
+            {
+                var orcamentos = db.Set<Orcamento>().Select(o => (decimal?)o.ValorMaximo).ToList();
+                if (orcamentos.Count == 0) return 0;
+                return Math.Round(orcamentos.Average() ?? 0, 2);
+            }
+        }
+
+        public static object SugerirListaCompras()
+        {
+            using (var db = new IShoppingContext())
+            {
+                int diaAtual = DateTime.Now.Day;
+                int semanaAtual = (int)Math.Ceiling(diaAtual / 7.0);
+
+                var comprasFechadas = db.Set<Compra>()
+                    .Include(c => c.Itens.Select(i => i.Artigo))
+                    .Where(c => c.Estado == "FECHADA" && c.DataCriacao.Month != DateTime.Now.Month)
+                    .ToList()
+                    .Where(c =>
+                    {
+                        int semana = (int)Math.Ceiling(c.DataCriacao.Day / 7.0);
+                        return semana == semanaAtual;
+                    })
+                    .ToList();
+
+                if (!comprasFechadas.Any())
+                    return new List<object>();
+
+                return comprasFechadas
+                    .SelectMany(c => c.Itens.Where(i => i.PreviaComprar && i.Artigo != null))
+                    .GroupBy(i => new { i.ArtigoId, Nome = i.Artigo.Nome })
+                    .Select(g => new
+                    {
+                        Artigo = g.Key.Nome,
+                        Qtd_Media_Sugerida = Math.Round(g.Average(i => i.QuantidadeComprada), 0)
+                    })
+                    .OrderByDescending(x => x.Qtd_Media_Sugerida)
+                    .ToList();
+            }
+        }
     }
 }

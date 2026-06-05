@@ -13,7 +13,6 @@ namespace IShopping.Controllers
         {
             using (var db = new IShoppingContext())
             {
-                
                 var comprasFechadas = db.Set<Compra>()
                     .Where(c => c.Estado == "FECHADA")
                     .Include(c => c.Itens.Select(i => i.Artigo))
@@ -21,8 +20,8 @@ namespace IShopping.Controllers
 
                 var csv = new StringBuilder();
 
-               
-                csv.AppendLine("NomeCompra;DataCriacao;DataFechada;NomeArtigo;Quantidade Adquirida;Artigo Previsto;Preco Unitario;ArtigoNaoPrevisto;Quantidade Prevista");
+                
+                csv.AppendLine("NomeCompra;DataCriacao;DataFechada;NomeArtigo;ArtigoPrevisto;ArtigoNaoPrevisto;QuantidadePrevista;QuantidadeAdquirida;PrecoUnitario");
 
                 foreach (var compra in comprasFechadas)
                 {
@@ -32,14 +31,13 @@ namespace IShopping.Controllers
                         string dataCriacao = compra.DataCriacao.ToString("dd/MM/yyyy HH:mm");
                         string dataFechada = compra.DataFecho?.ToString("dd/MM/yyyy HH:mm") ?? "-";
                         string nomeArtigo = item.Artigo?.Nome ?? item.Nome ?? "Artigo Indefinido";
-
-                        string quantidadeAdquirida = item.Adquirido ? item.QuantidadeComprada.ToString() : "0";
                         string artigoPrevisto = item.PreviaComprar ? "Sim" : "Não";
-                        string precoUnitario = item.PrecoUnitario.ToString("F2");
                         string artigoNaoPrevisto = !item.PreviaComprar ? "Sim" : "Não";
-                        string quantidadePrevista = item.PreviaComprar ? item.QuantidadeComprada.ToString() : "0";
+                        string qtdPrevista = item.PreviaComprar ? item.QuantidadeComprada.ToString() : "0";
+                        string qtdAdquirida = item.Adquirido ? item.QuantidadeComprada.ToString() : "0";
+                        string precoUnitario = item.PrecoUnitario.ToString("F2");
 
-                        csv.AppendLine($"{nomeCompra};{dataCriacao};{dataFechada};{nomeArtigo};{quantidadeAdquirida};{artigoPrevisto};{precoUnitario};{artigoNaoPrevisto};{quantidadePrevista}");
+                        csv.AppendLine($"{nomeCompra};{dataCriacao};{dataFechada};{nomeArtigo};{artigoPrevisto};{artigoNaoPrevisto};{qtdPrevista};{qtdAdquirida};{precoUnitario}");
                     }
                 }
 

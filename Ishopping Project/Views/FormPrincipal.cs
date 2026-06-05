@@ -62,13 +62,20 @@ namespace Ishopping_Project.Views
                     progressBarOrcamentoAtual.Value = 0;
                 }
 
-                if (dadosOrcamento.limite > 0 && dadosOrcamento.gasto > dadosOrcamento.limite)
+                if (dadosOrcamento.limite == 0)
+                {
+                    lblAlerta.Text = "⚠️ Sem orçamento definido para este mês.";
+                    lblAlerta.ForeColor = Color.DarkOrange;
+                    lblAlerta.Visible = true;
+                    progressBarOrcamentoAtual.Value = 0;
+                }
+                else if (dadosOrcamento.gasto > dadosOrcamento.limite)
                 {
                     lblAlerta.Text = "⚠️ ATENÇÃO: O orçamento mensal foi ultrapassado!";
                     lblAlerta.ForeColor = Color.DarkRed;
                     lblAlerta.Visible = true;
                 }
-                else if (dadosOrcamento.limite > 0 && (dadosOrcamento.gasto / dadosOrcamento.limite) >= 0.8m)
+                else if ((dadosOrcamento.gasto / dadosOrcamento.limite) >= 0.8m)
                 {
                     lblAlerta.Text = "⚡ Cuidado: Já gastou mais de 80% do orçamento!";
                     lblAlerta.ForeColor = Color.DarkOrange;
