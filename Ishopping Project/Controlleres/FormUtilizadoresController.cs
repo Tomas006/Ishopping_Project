@@ -1,13 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using IShopping.Models;
 
 namespace Ishopping_Project.Controlleres
 {
     public static class FormUtilizadorController
     {
-       
+        private static string GerarHash(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
+            }
+        }
+
         public static List<Utilizador> ObterTodosUtilizadores()
         {
             using (var db = new IShoppingContext())
@@ -17,12 +27,10 @@ namespace Ishopping_Project.Controlleres
             }
         }
 
-     
         public static bool CriarUtilizador(string nome, string username, string password, out string mensagem)
         {
             using (var db = new IShoppingContext())
             {
-              
                 bool userExiste = db.Utilizadores.Any(u => u.Username.ToLower() == username.ToLower());
                 if (userExiste)
                 {
@@ -34,7 +42,7 @@ namespace Ishopping_Project.Controlleres
                 {
                     Name = nome,
                     Username = username,
-                    Password = password
+                    Password = GerarHash(password)  // ← hash aqui
                 };
 
                 db.Utilizadores.Add(novo);
@@ -45,12 +53,10 @@ namespace Ishopping_Project.Controlleres
             }
         }
 
-       
         public static bool AtualizarUtilizador(int id, string nome, string username, string password, out string mensagem)
         {
             using (var db = new IShoppingContext())
             {
-                
                 bool userExiste = db.Utilizadores.Any(u => u.Username.ToLower() == username.ToLower() && u.Id != id);
                 if (userExiste)
                 {
@@ -68,10 +74,9 @@ namespace Ishopping_Project.Controlleres
                 utilizador.Name = nome;
                 utilizador.Username = username;
 
-            
                 if (!string.IsNullOrWhiteSpace(password))
                 {
-                    utilizador.Password = password;
+                    utilizador.Password = GerarHash(password);  // ← hash aqui
                 }
 
                 db.SaveChanges();
@@ -79,7 +84,6 @@ namespace Ishopping_Project.Controlleres
                 return true;
             }
         }
-
 
         public static bool ApagarUtilizador(int id, out string message)
         {

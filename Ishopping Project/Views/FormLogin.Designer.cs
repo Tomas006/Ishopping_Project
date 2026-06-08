@@ -110,7 +110,7 @@
             this.textPasswordRegistar.Name = "textPasswordRegistar";
             this.textPasswordRegistar.Size = new System.Drawing.Size(165, 22);
             this.textPasswordRegistar.TabIndex = 6;
-            // 
+            this.textPasswordRegistar.UseSystemPasswordChar = true;
             // textUsernameRegistar
             // 
             this.textUsernameRegistar.Location = new System.Drawing.Point(97, 175);
@@ -215,6 +215,7 @@
             this.textPasswordEntrar.Name = "textPasswordEntrar";
             this.textPasswordEntrar.Size = new System.Drawing.Size(165, 22);
             this.textPasswordEntrar.TabIndex = 10;
+            this.textPasswordEntrar.UseSystemPasswordChar = true;
             // 
             // textUsernameEntrar
             // 

@@ -19,6 +19,7 @@ namespace Ishopping_Project.Views
         {
             InitializeComponent();
             dataGridViewUtilizadores.SelectionChanged += dataGridViewUtilizadores_SelectionChanged;
+           
         }
 
         private void FormUtilizadores_Load(object sender, EventArgs e)
@@ -84,17 +85,14 @@ namespace Ishopping_Project.Views
 
                     if (linha.Cells["Id"].Value != null)
                     {
-                        
                         idUtilizadorSelecionado = Convert.ToInt32(linha.Cells["Id"].Value);
 
-                       
                         textNome.Text = linha.Cells["Name"].Value?.ToString();
                         textUsername.Text = linha.Cells["Username"].Value?.ToString();
 
                         
                         textPassword.Clear();
 
-                       
                         btnGravar.Enabled = false;
                         btnAtualizar.Enabled = true;
                     }
@@ -106,7 +104,6 @@ namespace Ishopping_Project.Views
             }
         }
 
-        
         private void btnGravar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textNome.Text) || string.IsNullOrWhiteSpace(textUsername.Text) || string.IsNullOrWhiteSpace(textPassword.Text))
@@ -186,13 +183,10 @@ namespace Ishopping_Project.Views
             }
         }
 
-        
-        private void checkBoxVerPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            textPassword.UseSystemPasswordChar = !checkBoxVerPassword.Checked;
-        }
 
-        
+       
+
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
@@ -216,9 +210,5 @@ namespace Ishopping_Project.Views
             this.Close();
         }
 
-        private void btnVoltar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

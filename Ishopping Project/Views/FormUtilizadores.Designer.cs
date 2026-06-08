@@ -35,7 +35,6 @@
             this.textNome = new System.Windows.Forms.TextBox();
             this.textUsername = new System.Windows.Forms.TextBox();
             this.textPassword = new System.Windows.Forms.TextBox();
-            this.checkBoxVerPassword = new System.Windows.Forms.CheckBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
@@ -118,19 +117,6 @@
             this.textPassword.Size = new System.Drawing.Size(309, 26);
             this.textPassword.TabIndex = 6;
             // 
-            // checkBoxVerPassword
-            // 
-            this.checkBoxVerPassword.AutoSize = true;
-            this.checkBoxVerPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxVerPassword.Location = new System.Drawing.Point(308, 150);
-            this.checkBoxVerPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxVerPassword.Name = "checkBoxVerPassword";
-            this.checkBoxVerPassword.Size = new System.Drawing.Size(123, 22);
-            this.checkBoxVerPassword.TabIndex = 7;
-            this.checkBoxVerPassword.Text = "Ver Password";
-            this.checkBoxVerPassword.UseVisualStyleBackColor = true;
-            this.checkBoxVerPassword.CheckedChanged += new System.EventHandler(this.checkBoxVerPassword_CheckedChanged);
-            // 
             // btnGravar
             // 
             this.btnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,7 +189,6 @@
             this.groupBox1.Controls.Add(this.textNome);
             this.groupBox1.Controls.Add(this.btnGravar);
             this.groupBox1.Controls.Add(this.textUsername);
-            this.groupBox1.Controls.Add(this.checkBoxVerPassword);
             this.groupBox1.Controls.Add(this.textPassword);
             this.groupBox1.Location = new System.Drawing.Point(16, 53);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -223,7 +208,7 @@
             this.btnVoltar.TabIndex = 14;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // FormUtilizadores
             // 
@@ -255,7 +240,6 @@
         private System.Windows.Forms.TextBox textNome;
         private System.Windows.Forms.TextBox textUsername;
         private System.Windows.Forms.TextBox textPassword;
-        private System.Windows.Forms.CheckBox checkBoxVerPassword;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnAtualizar;

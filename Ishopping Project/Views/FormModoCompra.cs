@@ -345,7 +345,7 @@ namespace Ishopping_Project.Views
             labelTotalCarrinho.Text = $"{totalCarrinhoAtual:N2} €"; 
             labelOrcamentoDisponivel.Text = $"{disponivel:N2} €";   
 
-            if (labelEstadoAtual != null) labelEstadoAtual.Text = _compraAtiva.Estado;
+       
 
             if (totalGastoAcumulado > _orcamentoMensal)
             {

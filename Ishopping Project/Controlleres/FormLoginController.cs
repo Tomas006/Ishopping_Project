@@ -1,17 +1,23 @@
 ﻿using IShopping.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.Entity;
-
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Ishopping_Project.Controlleres
 {
     internal class FormLoginController
     {
+        private static string GerarHash(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
+            }
+        }
 
         public static bool Autenticar(string login, string password, out string mensagem)
         {
@@ -23,23 +29,22 @@ namespace Ishopping_Project.Controlleres
                 return false;
             }
 
-
             using (IShoppingContext db = new IShoppingContext())
             {
+                string passwordHash = GerarHash(password);
+
                 Utilizador utilizador = db.Utilizadores.FirstOrDefault(u => u.Username == login
-                && u.Password == password);
+                    && u.Password == passwordHash);
 
                 if (utilizador == null)
                 {
                     mensagem = "Login ou password incorretos";
                     return false;
-
                 }
 
                 Sessao.UtilizadorAtual = utilizador.Username;
                 Sessao.UtilizadorAtualObj = utilizador;
                 mensagem = "Login efetuado com sucesso";
-
                 return true;
             }
         }
@@ -48,7 +53,6 @@ namespace Ishopping_Project.Controlleres
         {
             mensagem = "";
 
-         
             if (nome.Trim() == "" || login.Trim() == "" || password == "")
             {
                 mensagem = "Deve preencher todos os campos (Nome, Username e Password).";
@@ -57,7 +61,6 @@ namespace Ishopping_Project.Controlleres
 
             using (IShoppingContext db = new IShoppingContext())
             {
-                
                 bool existe = db.Utilizadores.Any(u => u.Username == login);
 
                 if (existe)
@@ -68,12 +71,11 @@ namespace Ishopping_Project.Controlleres
 
                 Utilizador novoUtilizador = new Utilizador
                 {
-                    Name = nome,       
+                    Name = nome,
                     Username = login,
-                    Password = password
+                    Password = GerarHash(password)  // ← hash aqui
                 };
 
-               
                 db.Utilizadores.Add(novoUtilizador);
                 db.SaveChanges();
 
@@ -81,6 +83,5 @@ namespace Ishopping_Project.Controlleres
                 return true;
             }
         }
-
     }
 }
